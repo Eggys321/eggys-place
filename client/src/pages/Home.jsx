@@ -1,10 +1,13 @@
 import React from 'react'
+import Hero from '../features/home/Hero'
+import Menu from '../features/home/Menu'
 
 const Home = () => {
   return (
     <>
     <main>
-        <h1>home page</h1>
+      <Hero/>
+      <Menu/>
     </main>
     </>
   )
