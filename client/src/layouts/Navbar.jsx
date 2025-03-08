@@ -57,10 +57,10 @@ const Navbar = () => {
           <div className="flex gap-4 lg:gap-6 xl:gap-8 items-center">
             <h2 className="font-medium text-lg text-[#FBFBFB] hidden lg:block whitespace-nowrap">All Products</h2>
             <ul className="flex gap-4 lg:gap-6 items-center">
-              <li className="flex items-center justify-center w-[60px] h-[60px] md:w-[142px] lg:h-[56px] py-[15px]  lg:px-[20px]  bg-[#B67B0F] rounded-[100px] lg:rounded-[32px]">
+              <li className="flex items-center justify-center w-[76px] h-[50px] md:w-[142px] lg:h-[56px] py-[15px]  lg:px-[20px]  bg-[#B67B0F] rounded-[100px] lg:rounded-[32px]">
                 <img src={cartLogo} alt="cart-logo" /> <Link className="ps-2 text-[#FBFBFB] font-[500] text-[20px]"> <span className="hidden md:inline-block">Cart</span> 30</Link>
               </li>
-              <li className="flex items-center w-[60px] h-[60px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full " >
+              <li className="flex items-center w-[55px] h-[55px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full " >
                 
                 <img src={loginLogo} alt="login-logo" /> <Link className="ps-2 text-[#100101] font-[500] text-[20px] hidden md:inline-block"> <AuthModal text="Login"/>  </Link>
               </li>

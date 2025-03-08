@@ -3,8 +3,9 @@ import MyButton from "../../components/MyButton";
 
 const Hero = () => {
   return (
+    
     <>
-      <main className="bg-[url(/hero-img-png.png)]  bg-cover bg-center  bg-no-repeat h-[460px] sm:h-[500px] md:h-[600px] lg:h-[600px]">
+      <main className="bg-[url(/hero-img-png.png)]  bg-cover bg-center  bg-no-repeat h-[500px] sm:h-[500px] md:h-[600px] lg:h-[600px]">
         <div className="flex  flex-col items-center justify-center h-full gap-y-5 lg:gap-y-20">
           <div>
 

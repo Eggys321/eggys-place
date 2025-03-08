@@ -23,7 +23,7 @@ const Menu = () => {
             const { _id, title, image, rating, duration, price, category } =
               menuItem;
             return (
-                <div key={_id} className="card bg-[#252422] w-full md:w-[347px] lg:w-[306px] p-[14px] my-10 md:my-0 shadow-sm">
+                <div key={_id} className="card bg-[#252422] w-full md:w-[347px] lg:w-[350px] p-[14px] my-10 md:my-0 shadow-sm">
                   <figure>
                     <img
                       src={image}
