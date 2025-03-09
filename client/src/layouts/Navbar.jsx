@@ -6,12 +6,13 @@ import cartLogo from "../assets/cart-img.svg";
 import loginLogo from "../assets/login-img.svg";
 import { LocationDropDownFN } from "../utils/DropDown";
 import AuthModal from "../components/modals/AuthModal";
+import SearchField from "../components/SearchField";
 
 const Navbar = () => {
   // const [isOpen,setIsOpen] = useState()
   return (
     <>
-      <header className="bg-[#100101] w-full  top-0 ">
+      <header className="bg-[#100101] w-full sticky z-10 top-0 ">
         <nav className="wrapper gap-4 lg:gap-8 xl:gap-12 flex justify-between items-center">
           {/* <div className="flex items-center gap-4 lg:gap-6">
             <div className="">
@@ -43,15 +44,7 @@ const Navbar = () => {
         </div>
 
           <div className="hidden lg:flex w-[399px] xl:w-[450px] 2xl:w-[500px] ml-4">
-            <form className="w-full">
-              <input
-                type="text"
-                placeholder="Search"
-                className="w-full h-[56px] rounded-[32px] bg-[#F0F0F0] outline-none placeholder:text-[#100101] px-8 border font-medium text-lg"
-
-                // className="w-[399px] h-[56px] rounded-[32px] bg-[#F0F0F0] outline-none placeholder:text-[#100101] ps-[30px] border font-[400] text-[20px]"
-              />
-            </form>
+            <SearchField/>
           </div>
 
           <div className="flex gap-4 lg:gap-6 xl:gap-8 items-center">

@@ -18,7 +18,7 @@ body {
 }
 
 .wrapper{
-  @apply w-full mx-auto  px-[20px] md:px-[40px] py-[10px] lg:px-[80px] xl:px-[90px] lg:py-[16px] 
+  @apply w-full mx-auto  px-[14px] md:px-[40px] py-[10px] lg:px-[80px] xl:px-[80px] lg:py-[16px] 
   /* @apply w-full mx-auto px-[20px] md:px-[40px] py-[10px] lg:px-[90px] xl:px-[130px] lg:py-[16px]; */
 
 }
