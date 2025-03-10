@@ -5,12 +5,14 @@ const FieldSet = () => {
     <>
      <fieldset className="fieldset mt-5 ">
             <select defaultValue="Pick a browser" className="select w-full rounded-[12px] h-[56px]">
-              <option disabled={true}>Pick a browser</option>
-              <option>Chrome</option>
-              <option>FireFox</option>
-              <option>Safari</option>
+              <option disabled={true}>Select a category</option>
+              <option>Burger</option>
+              <option>Drinks</option>
+              <option>Salads</option>
+              <option>Combos</option>
+              <option>Chips</option>
+              <option>Chicken</option>
             </select>
-            <span className="fieldset-label">Optional</span>
           </fieldset>
     </>
   )

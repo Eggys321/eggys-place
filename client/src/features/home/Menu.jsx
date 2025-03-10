@@ -23,7 +23,7 @@ const Menu = () => {
       
 
          <FieldSet/>
-          <SearchField />
+          {/* <SearchField /> */}
         </section>
         {/* section-2 */}
         <section className="md:grid md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-10  my-10 ">
