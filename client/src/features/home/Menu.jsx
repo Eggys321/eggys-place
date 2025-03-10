@@ -52,7 +52,10 @@ const Menu = () => {
                     <p className="text-[#FBFBFB] font-[400] text-[14px]"> {rating} </p>
                   </div>
                   </div>
-                  <p className="text-[#B67B0F] font-[500] text-[31px] py-5 "> &#8358; {price} </p>
+                  <div className="flex justify-between items-center">
+                  <p className="text-[#B67B0F]  py-5 "> <span className="font-[200] text-[23px]">&#8358;</span> <span className="font-[500] text-[31px]">{price}</span> </p>
+                  <p className="text-[#FBFBFB]"> {duration} </p>
+                  </div>
                   <div className="card-actions justify-end ">
                     <MyButton text="Add to cart" className="w-full h-[56px]" />
                   </div>

@@ -23,6 +23,7 @@ export const menuItems = [
       price: "10000",
       category:"Burger",
       duration: "15-20mins",
+      description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
     },
 
     {
@@ -32,7 +33,8 @@ export const menuItems = [
         rating:"5.0",
         price: "10000",
         category:"Burger",
-        duration: "15-20mins",  
+        duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."  
     },
 
     {
@@ -43,6 +45,7 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
 
       {
@@ -53,6 +56,7 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
 
       {
@@ -63,6 +67,7 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
 
       {
@@ -73,6 +78,7 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
 
       {
@@ -83,6 +89,7 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
 
       {
@@ -93,6 +100,7 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
       
       {
@@ -103,5 +111,6 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
 ]
