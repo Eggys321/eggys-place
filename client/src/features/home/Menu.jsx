@@ -3,6 +3,7 @@ import { categoryList, menuItems } from "../../db";
 import MyButton from "../../components/MyButton";
 import SearchField from "../../components/SearchField";
 import FieldSet from "./FieldSet";
+import rateIcon from "../../assets/rating-icon.svg"
 
 const Menu = () => {
   return (
@@ -33,7 +34,7 @@ const Menu = () => {
             return (
               <div
                 key={_id}
-                className="card bg-[#252422] w-full md:w-[347px] lg:w-[94%] p-[16px] my-10 md:my-0 shadow-sm"
+                className="card bg-[#252422] w-full md:w-[340px] lg:w-[98%]  p-[16px] my-10 md:my-0 shadow-sm"
               >
                 <figure>
                   <img
@@ -42,13 +43,17 @@ const Menu = () => {
                     className="w-full h-auto object-cover "
                   />
                 </figure>
-                <div className="">
-                  <h2 className="card-title text-[#FBFBFB] ">{title} </h2>
-                  <p>
-                    A card component has a figure, a body part, and inside body
-                    there are title and actions parts
-                  </p>
-                  <div className="card-actions justify-end">
+                <div className="pt-4">
+                  <div className="flex justify-between items-center">
+
+                  <h2 className="card-title font-[500] text-[20px] text-[#FBFBFB] ">{title} </h2>
+                  <div className="flex gap-x-2 border border-[#B67B0F] py-[6px] px-[4px] rounded-[2px] ">
+                    <img src={rateIcon} alt="rate-icon" />
+                    <p className="text-[#FBFBFB] font-[400] text-[14px]"> {rating} </p>
+                  </div>
+                  </div>
+                  <p className="text-[#B67B0F] font-[500] text-[31px] py-5 "> &#8358; {price} </p>
+                  <div className="card-actions justify-end ">
                     <MyButton text="Add to cart" className="w-full h-[56px]" />
                   </div>
                 </div>
