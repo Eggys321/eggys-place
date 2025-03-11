@@ -28,7 +28,7 @@ const Product = () => {
 
         <section className="mt-10 ">
           <h2 className="text-white text-4xl pb-6">Others You Might Like</h2>
-          <div className="inline-flex flex-wrap gap-8">
+          <div className="inline-flex flex-wrap justify-between gap-8">
 
           {similarProducts.map((x)=>{
             return(
