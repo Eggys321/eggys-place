@@ -40,7 +40,10 @@ const Navbar = () => {
             </div>
           </div> */}
            <div className="flex items-center gap-4 lg:gap-6">
+            <Link to="/"> 
+            
           <img src={navLogo} alt="nav-logo" className="w-10 md:w-full h-auto" />
+            </Link>
           <div onClick={toggleSearch} className="lg:hidden">
             <img src={searchLogo} alt="search logo" className="w-7 md:w-20 cursor-pointer"  />
           </div>

@@ -7,9 +7,9 @@ const Hero = () => {
     <>
       <main className="bg-[url(/hero-img-png.png)]  bg-cover bg-center  bg-no-repeat h-[500px] sm:h-[500px] md:h-[600px] lg:h-[600px]">
         <div className="flex  flex-col items-center justify-center h-full gap-y-5 lg:gap-y-20">
-          <div>
+          <div className="animate__animated animate__fadeIn">
 
-          <h1 className="text-[#F0F0F0] text-[2rem] pb-8 md:pb-0 md:text-[56px] font-[500] text-center">
+          <h1 className="text-[#F0F0F0] text-[2rem] pb-8 md:pb-0 md:text-[56px] font-[500] text-center ">
             The <span className="text-[#fda503] font-[400] font-Rammetto-one ">
                ZING 
             </span> in every bite

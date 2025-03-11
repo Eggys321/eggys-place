@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { Home, Navbar } from "./routes/routes";
 import Footer from "./layouts/Footer";
 import LoadingRing  from "./utils/Loader";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="product/:id" element={<Product/>}/>
           </Routes>
           <Footer/>
         </Suspense>
