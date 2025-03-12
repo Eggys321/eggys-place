@@ -8,12 +8,12 @@ const FieldSet = ({selectedCat,setSelectedCat}) => {
          value={selectedCat}
             >
               <option disabled={true}>Select a category</option>
-              <option value="Burger">Burger</option>
-              <option value="Drinks">Drinks</option>
-              <option value="Salads">Salads</option>
-              <option value="Combos">Combos</option>
-              <option value="Chips">Chips</option>
-              <option value="Chicken">Chicken</option>
+              <option value="Burger" className='w-full'>Burger</option>
+              <option value="Drinks" className='w-full'>Drinks</option>
+              <option value="Salads" className='w-full'>Salads</option>
+              <option value="Combos" className='w-full'>Combos</option>
+              <option value="Chips" className='w-full'>Chips</option>
+              <option value="Chicken" className='w-full'>Chicken</option>
             </select>
           </fieldset>
     </>
