@@ -160,7 +160,7 @@ export const menuItems = [
       
       {
         _id: 14,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741691086/eggys-place/drink-1_yzmo3a.svg",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-11_zka2ap.avif",
         title: "Drinks",
         rating: "5.0",
         price: "5,000",
@@ -171,7 +171,7 @@ export const menuItems = [
       
       {
         _id: 15,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741691087/eggys-place/drink-2_d9izgf.svg",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-14_dxk3b2.avif",
         title: "Drinks",
         rating: "5.0",
         price: "5,000",
@@ -182,7 +182,7 @@ export const menuItems = [
       
       {
         _id: 16,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741691088/eggys-place/drink-3_lobeke.svg",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-13_noh0rp.avif",
         title: "Drinks",
         rating: "5.0",
         price: "5,000",
@@ -193,7 +193,7 @@ export const menuItems = [
       
       {
         _id: 17,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741691089/eggys-place/drink-4_xmuc8l.svg",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741812482/drink-15_xx3rur.avif",
         title: "Drinks",
         rating: "5.0",
         price: "5,000",
@@ -342,7 +342,7 @@ export const menuItems = [
       
       {
         _id: 30,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-4_ncliiw.svg",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-3_ykdghi.svg",
         title: "Salads",
         rating: "5.0",
         price: "2,000",

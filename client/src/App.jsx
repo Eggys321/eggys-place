@@ -39,6 +39,7 @@ function App() {
   },[cart])
   console.log(cart);
   
+  
   let handleAddToCart = (product) => {
     const productSelected = cart.find(
       (singleCart) => singleCart._id === product._id
