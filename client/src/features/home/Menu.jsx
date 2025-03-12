@@ -33,7 +33,7 @@ const Menu = ({handleAddToCart}) => {
           })}
         </section>
         <section className="md:hidden mt-5">
-          <FieldSet />
+          <FieldSet selectedCat={selectedCat}  setSelectedCat={setSelectedCat} />
           {/* <SearchField /> */}
         </section>
         {/* section-2 */}

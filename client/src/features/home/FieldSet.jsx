@@ -1,17 +1,19 @@
 import React from 'react'
 
-const FieldSet = () => {
+const FieldSet = ({selectedCat,setSelectedCat}) => {
   return (
     <>
      <fieldset className="fieldset mt-5 ">
-            <select defaultValue="Pick a browser" className="select w-full rounded-[12px] h-[56px]">
+            <select defaultValue="Pick a browser" className="select w-full rounded-[12px] h-[56px]"         onChange={(e) => setSelectedCat(e.target.value)}
+         value={selectedCat}
+            >
               <option disabled={true}>Select a category</option>
-              <option>Burger</option>
-              <option>Drinks</option>
-              <option>Salads</option>
-              <option>Combos</option>
-              <option>Chips</option>
-              <option>Chicken</option>
+              <option value="Burger">Burger</option>
+              <option value="Drinks">Drinks</option>
+              <option value="Salads">Salads</option>
+              <option value="Combos">Combos</option>
+              <option value="Chips">Chips</option>
+              <option value="Chicken">Chicken</option>
             </select>
           </fieldset>
     </>
