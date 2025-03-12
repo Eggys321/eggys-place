@@ -9,7 +9,9 @@ import AuthModal from "../components/modals/AuthModal";
 import SearchField from "../components/SearchField";
 import searchLogo from "../assets/search-logo.svg"
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
+  console.log(cart);
+  
   // const [isOpen,setIsOpen] = useState()
   const [isTrue,setIsTrue] = useState(false);
   function toggleSearch(){
@@ -65,11 +67,18 @@ const Navbar = () => {
             {/* <h2 className="font-medium text-lg text-[#FBFBFB] hidden lg:block whitespace-nowrap">All Products</h2> */}
             <ul className="flex gap-4 lg:gap-6 items-center">
               <li className="flex items-center justify-center w-[76px] h-[50px] md:w-[142px] lg:h-[56px] py-[15px]  lg:px-[20px]  bg-[#B67B0F] rounded-[100px] lg:rounded-[32px]">
-                <img src={cartLogo} alt="cart-logo" /> <Link className="ps-2 text-[#FBFBFB] font-[500] text-[20px]"> <span className="hidden md:inline-block">Cart</span> 30</Link>
-              </li>
-              <li className="flex items-center w-[55px] h-[55px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full " >
+                <Link className="flex items-center justify-center" to="cart">
                 
-                <img src={loginLogo} alt="login-logo" /> <Link className="ps-2 text-[#100101] font-[500] text-[20px] hidden md:inline-block"> <AuthModal text="Login"/>  </Link>
+                <img src={cartLogo} alt="cart-logo" /> <span className="ps-2 text-[#FBFBFB] font-[500] text-[20px]"> <span className="hidden md:inline-block">Cart</span>  {cart.length} </span>
+                </Link>
+                
+              </li>
+              <li className="flex items-center w-[98px] h-[50px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full " >
+                <Link className="flex items-center justify-center">
+                
+                <img src={loginLogo} alt="login-logo" /> <span className="ps-2 text-[#100101] font-[500] text-[20px]"> <AuthModal text="Login"/>  </span>
+                </Link>
+                
               </li>
             </ul>
           </div>

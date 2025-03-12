@@ -5,8 +5,10 @@ import SearchField from "../../components/SearchField";
 import FieldSet from "./FieldSet";
 import rateIcon from "../../assets/rating-icon.svg";
 import { Link } from "react-router-dom";
+import {  toast } from 'sonner';
 
-const Menu = () => {
+
+const Menu = ({handleAddToCart}) => {
   const [selectedCat, setSelectedCat] = useState("Burger");
   return (
     <>
@@ -79,10 +81,11 @@ const Menu = () => {
                       </p>
                       <p className="text-[#FBFBFB]"> {duration} </p>
                     </div>
-                    <div className="card-actions justify-end ">
+                    <div className="card-actions justify-center ">
                       <MyButton
                         text="Add to cart"
                         className="w-full h-[56px]"
+                        onClick={()=> {handleAddToCart(mappedMenu) ,  toast.success('Item added')  } }
                       />
                     </div>
                   </div>

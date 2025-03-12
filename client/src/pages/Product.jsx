@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { menuItems } from "../db";
 import MyButton from "../components/MyButton";
+import { useEffect } from "react";
 
 const Product = () => {
   const { id } = useParams();
@@ -10,6 +11,14 @@ const Product = () => {
   const similarProducts = menuItems.filter((item)=> item.category == product.category).map((it)=> it)
   console.log(similarProducts);
   console.log(product);
+
+  useEffect(()=>{
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    })
+  })
   
   
   return (
