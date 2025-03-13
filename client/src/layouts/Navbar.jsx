@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import navLogo from "../assets/nav-logo.svg";
 import locationImg from "../assets/location-img.svg";
 import { Link } from "react-router-dom";
@@ -8,12 +8,15 @@ import { LocationDropDownFN } from "../utils/DropDown";
 import AuthModal from "../components/modals/AuthModal";
 import SearchField from "../components/SearchField";
 import searchLogo from "../assets/search-logo.svg"
+import CartContext from "../context/CartContext";
 
-const Navbar = ({cart}) => {
-  console.log(cart);
+const Navbar = () => {
+  const [isLoggedIn,setIsloggedIn] = useState(false);
+  const [isTrue,setIsTrue] = useState(false);
+  const {cart} = useContext(CartContext);
+  // console.log(cart);
   
   // const [isOpen,setIsOpen] = useState()
-  const [isTrue,setIsTrue] = useState(false);
   function toggleSearch(){
  isTrue ? setIsTrue(false) : setIsTrue(true)
   }
@@ -74,10 +77,13 @@ const Navbar = ({cart}) => {
                 
               </li>
               <li className="flex items-center w-[98px] h-[50px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full " >
-                <Link className="flex items-center justify-center">
+
+              {isLoggedIn ? "Hi eggys" :  <Link className="flex items-center justify-center">
                 
                 <img src={loginLogo} alt="login-logo" /> <span className="ps-2 text-[#100101] font-[500] text-[20px]"> <AuthModal text="Login"/>  </span>
-                </Link>
+                </Link> }
+
+               
                 
               </li>
             </ul>

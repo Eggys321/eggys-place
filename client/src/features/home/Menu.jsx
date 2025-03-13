@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { categoryList, menuItems } from "../../db";
 import MyButton from "../../components/MyButton";
 import SearchField from "../../components/SearchField";
@@ -6,10 +6,12 @@ import FieldSet from "./FieldSet";
 import rateIcon from "../../assets/rating-icon.svg";
 import { Link } from "react-router-dom";
 import {  toast } from 'sonner';
+import CartContext from "../../context/CartContext"
 
 
-const Menu = ({handleAddToCart}) => {
+const Menu = () => {
   const [selectedCat, setSelectedCat] = useState("Burger");
+  const {handleAddToCart} = useContext(CartContext)
   return (
     <>
       <main className="bg-[#2F2F2F] wrapper">

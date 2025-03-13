@@ -20,7 +20,7 @@ export const menuItems = [
       image: "https://res.cloudinary.com/eguono/image/upload/v1741087059/eggys-place/cheese-burger-1_on6vmf.svg",
       title: "Cheese burger",
       rating: "5.0",
-      price: "10,000",
+      price: "10000",
       category:"Burger",
       duration: "15-20mins",
       description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -31,7 +31,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087059/eggys-place/cheese-burger-2_zus1aw.svg",
         title: "Cheese burger",
         rating:"5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."  
@@ -42,7 +42,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087062/eggys-place/cheese-burger-3_hxzpnq.svg",
         title: "Cheese burger",
         rating: "5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -53,7 +53,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087062/eggys-place/cheese-burger-4_q4otgb.svg",
         title: "Cheese burger",
         rating: "5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -64,7 +64,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087062/eggys-place/cheese-burger-5_bthgaq.svg",
         title: "Cheese burger",
         rating: "5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -75,7 +75,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087064/eggys-place/cheese-burger-6_cujdih.svg",
         title: "Cheese burger",
         rating: "5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -86,7 +86,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087063/eggys-place/cheese-burger-7_k4jpt3.svg",
         title: "Cheese burger",
         rating: "5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -97,7 +97,7 @@ export const menuItems = [
         image:  "https://res.cloudinary.com/eguono/image/upload/v1741087059/eggys-place/cheese-burger-8_kvc4tu.svg",
         title: "Cheese burger",
         rating: "5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -108,7 +108,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087061/eggys-place/cheese-burger-9_nwd7eo.svg",
         title: "Cheese burger",
         rating: "5.0",
-        price: "10,000",
+        price: "10000",
         category:"Burger",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -119,7 +119,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/combo-1_bhjhhe.svg",
         title: "Combos",
         rating: "5.0",
-        price: "12,000",
+        price: "12000",
         category:"Combos",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -130,7 +130,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/combo-2_ne7gkh.svg",
         title: "Combos",
         rating: "5.0",
-        price: "12,000",
+        price: "12000",
         category:"Combos",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -141,7 +141,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691086/eggys-place/combo-3_ohoqc9.svg",
         title: "Combos",
         rating: "5.0",
-        price: "12,000",
+        price: "12000",
         category:"Combos",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -152,7 +152,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691087/eggys-place/combo-4_fu6cni.svg",
         title: "Combos",
         rating: "5.0",
-        price: "12,000",
+        price: "12000",
         category:"Combos",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -163,7 +163,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-11_zka2ap.avif",
         title: "Drinks",
         rating: "5.0",
-        price: "5,000",
+        price: "5000",
         category:"Drinks",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -174,7 +174,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-14_dxk3b2.avif",
         title: "Drinks",
         rating: "5.0",
-        price: "5,000",
+        price: "5000",
         category:"Drinks",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -185,7 +185,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-13_noh0rp.avif",
         title: "Drinks",
         rating: "5.0",
-        price: "5,000",
+        price: "5000",
         category:"Drinks",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -196,7 +196,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741812482/drink-15_xx3rur.avif",
         title: "Drinks",
         rating: "5.0",
-        price: "5,000",
+        price: "5000",
         category:"Drinks",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -207,7 +207,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chicken-1_qt4cgk.svg",
         title: "Chicken",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chicken",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -219,7 +219,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chicken-2_xu6ewt.svg",
         title: "Chicken",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chicken",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -231,7 +231,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691144/eggys-place/chicken-3_ybodwr.svg",
         title: "Chicken",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chicken",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -242,7 +242,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chicken-4_m27xyk.svg",
         title: "Chicken",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chicken",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -254,7 +254,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chips-1_xsjlyg.svg",
         title: "Chips",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chips",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -265,7 +265,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691085/eggys-place/chips-2_x5gmcx.svg",
         title: "Chips",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chips",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -276,7 +276,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/chips-3_hrbxmx.svg",
         title: "Chips",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chips",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -288,7 +288,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/chips-4_i0odlp.svg",
         title: "Chips",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chips",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -299,7 +299,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/chips-4_i0odlp.svg",
         title: "Chips",
         rating: "5.0",
-        price: "4,000",
+        price: "4000",
         category:"Chips",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -310,7 +310,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-1_sxxkvd.svg",
         title: "Salads",
         rating: "5.0",
-        price: "2,000",
+        price: "2000",
         category:"Salads",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -322,7 +322,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-2_lvc6cd.svg",
         title: "Salads",
         rating: "5.0",
-        price: "2,000",
+        price: "2000",
         category:"Salads",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -333,7 +333,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-3_ykdghi.svg",
         title: "Salads",
         rating: "5.0",
-        price: "2,000",
+        price: "2000",
         category:"Salads",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
@@ -345,7 +345,7 @@ export const menuItems = [
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-3_ykdghi.svg",
         title: "Salads",
         rating: "5.0",
-        price: "2,000",
+        price: "2000",
         category:"Salads",
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."

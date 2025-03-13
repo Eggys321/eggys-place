@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { menuItems } from "../db";
 import MyButton from "../components/MyButton";
 import { useEffect } from "react";
+import CartContext from "../context/CartContext";
+import {  toast } from 'sonner';
+
 
 const Product = () => {
+  const {handleAddToCart} = useContext(CartContext);
   const { id } = useParams();
   console.log(id);
   const product = menuItems.find((item) => item._id == id);
@@ -31,7 +35,8 @@ const Product = () => {
           <div className="text-[#FFFFFF] md:px-8 flex flex-col justify-center gap-y-[20px] ">
             <h1 className="font-[500] text-[34px]"> {product.title} </h1>
             <p className="font-[400] text-[20px] py-4"> {product.description} </p>
-            <MyButton text="Add To Cart" className="w-full h-[56px] "/>
+            <MyButton                         onClick={()=> {handleAddToCart(product) ,  toast.success('Item added')  } }
+             text="Add To Cart" className="w-full h-[56px] "/>
           </div>
         </section>
 
