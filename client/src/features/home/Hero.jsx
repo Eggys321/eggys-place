@@ -5,8 +5,10 @@ const Hero = () => {
   return (
     
     <>
-      <main className="bg-[url(/hero-img-png.png)]  bg-cover bg-center  bg-no-repeat h-[500px] sm:h-[500px] md:h-[600px] lg:h-[600px]">
-        <div className="flex  flex-col items-center justify-center h-full gap-y-5 lg:gap-y-20">
+      <main className="relative  bg-[url(/hero-img-png.png)]  bg-cover bg-center  bg-no-repeat h-[500px] sm:h-[500px] md:h-[600px] lg:h-[600px]">
+      <div className=""></div>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-[#151517] to-transparent  flex  flex-col items-center justify-center h-full gap-y-5 lg:gap-y-20">
           <div className="animate__animated animate__fadeIn">
 
           <h1 className="text-[#F0F0F0] text-[2rem] pb-8 md:pb-0 md:text-[56px] font-[500] text-center ">
