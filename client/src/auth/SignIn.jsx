@@ -38,11 +38,11 @@ const SignIn = ({ switchToSignUp }) => {
           <p className="text-red-600">{errors.email?.message}</p>
 
           </div>
-          <div className="relative">
+          <div className="relative w-full">
 
           <Input type={isReveal ? "text" : "password"} placeholder="Password" name="password" {...register("password")}/>
+          <img className=" absolute top-2.5  left-[90%]" src={isReveal ? visibilityOff : visibilityOn} alt="toggle-password-img" onClick={togglePwd} />
           <p className="text-red-600">{errors.password?.message}</p>
-          <img className=" absolute top-2.5  left-106" src={isReveal ? visibilityOff : visibilityOn} alt="toggle-password-img" onClick={togglePwd} />
           </div>
 
           <Link className="text-[#FBFBFB] text-[10px] font[400] underline">Forgot Password?</Link>

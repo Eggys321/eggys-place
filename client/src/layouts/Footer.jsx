@@ -1,5 +1,5 @@
 import React from "react";
-import navLogo from "../assets/footer-logo.svg";
+import navLogo from "../assets/nav-logo.svg"
 import xLogo from "../assets/x-img.svg";
 import twitterLogo from "../assets/twitter.svg";
 import facebookLogo from "../assets/facebook.svg";
@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#100101] h-full py-10 flex  flex-col gap-8">
       <section className="wrapper text-center  justify-center pb-8  lg:flex items-center lg:justify-between">
-        <div className="flex justify-center ">
+        <div className="flex justify-center items-center bg-[#B67B0F] p-2 rounded-[6px] w-20 mx-auto md:mx-0 md:w-fit mb-6 md:mb-0 ">
           <img src={navLogo} alt="nav-logo" />
         </div>
         <div className="md:py-6">
