@@ -7,6 +7,7 @@ import LoadingRing  from "./utils/Loader";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import { Toaster, toast } from 'sonner';
+import ScrollToTop from "./utils/ScrollToTop";
 
 
 // const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
@@ -66,6 +67,7 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={<div className="flex justify-center items-center h-screen"> <LoadingRing/> </div>}>
         <Navbar/>
+        <ScrollToTop/>
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/product/:id" element={<Product/>}/>

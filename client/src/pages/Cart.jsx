@@ -3,45 +3,15 @@ import deleteIcon from "../assets/waste-bin.svg";
 import CartContext from '../context/CartContext';
 import UseTitle from '../Hooks/UseTitle';
 import {  toast } from 'sonner';
+import { calculateTotalPrice, handleInc,handleDec,handleRemove } from '../utils/CartUtils';
+
 
 
 const Cart = () => {
     const {cart,setCart} = useContext(CartContext)
-    console.log(cart);
     UseTitle("Your Cart | Eggys place")
-    // handleRemove
-    function handleRemove(cartId){
-        let remove = cart.filter( ( cartItx ) => cartItx._id !== cartId )
-        setCart(remove)
-    }
-
-    // handleInc
-    let handleInc =(productId)=>{
-        const incQty = cart.map((cartItx)=>cartItx._id === productId ? {...cartItx,quantity:cartItx.quantity + 1 } : cartItx )
-
-        setCart(incQty)
-
-    }
-
-    // handleDec
-
-
-    let handleDec = function(itemId){
-        const decQty = cart.map((cartItx)=>{
-            if(cartItx._id === itemId){
-                const qty = cartItx.quantity > 1 ? cartItx.quantity - 1 : 1;
-                return{...cartItx,quantity:qty}
-            }
-            return cartItx;
-        })
-        setCart(decQty)
-    }
-
-    // total price
-    const totalPrice = cart.reduce((total,product)=> total + parseFloat(product?.price) * product?.quantity, 0)
-    // console.log(totalPrice);
-    
-    
+   
+    const totalPrice    = calculateTotalPrice(cart)
   return (
     <>
     {cart.length === 0 ? <h1>No item</h1> :  <main className='bg-[#2F2F2F] text-white wrapper grid lg:grid-cols-3 gap-[20px] '>
@@ -52,7 +22,7 @@ const Cart = () => {
                 {cart.map((cartItem)=>{
                     const {_id,image,title,price,quantity} = cartItem
                     return(
-                        <div className='flex flex-wrap justify-between items-center px-8 mb-10  bg-[#252422] p-6'>
+                        <div key={_id} className='flex flex-wrap justify-between items-center px-8 mb-10  bg-[#252422] p-6'>
                             <div>
                             <img src={image} alt={title}  className='w-40 rounded-2xl'/>
                             <h1> {title} </h1>
@@ -60,11 +30,11 @@ const Cart = () => {
 
                             </div>
                             <div className='flex items-center flex-col gap-8'>
-                                <img onClick={()=> {handleRemove(_id),toast.success('Item removed') }} className='cursor-pointer ' src={deleteIcon} alt="waste-bin" />
+                                <img onClick={()=> {handleRemove(cart, setCart,_id),toast.success('Item removed') }} className='cursor-pointer ' src={deleteIcon} alt="waste-bin" />
                                 <div className='flex items-center gap-4'>
-                                    <h2 className=' cursor-pointer bg-yellow-500 p-3 rounded-full' onClick={()=>handleInc(_id)}>+</h2>
+                                    <h2 className=' cursor-pointer bg-yellow-500 p-3 rounded-full' onClick={()=>handleInc(cart, setCart,_id)}>+</h2>
                                     <p> {quantity} </p>
-                                    <h2 className=' cursor-pointer bg-yellow-500 p-3 rounded-full' onClick={()=>handleDec(_id)}>-</h2>
+                                    <h2 className=' cursor-pointer bg-yellow-500 p-3 rounded-full' onClick={()=>handleDec(cart, setCart,_id)}>-</h2>
                                 </div>
                             </div>
                         </div>

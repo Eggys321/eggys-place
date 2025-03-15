@@ -52,7 +52,7 @@ const Navbar = () => {
           <div onClick={toggleSearch} className="lg:hidden">
             <img src={searchLogo} alt="search logo" className="w-7 md:w-20 cursor-pointer"  />
           </div>
-          <div className="lg:flex items-center gap-3 lg:gap-5 md:me-3 hidden ">
+          <div className="lg:flex items-center gap-3 lg:gap-5 md:me-1 hidden ">
             <img src={locationImg} alt="location-logo" className="w-5 md:w-full h-auto" />
             <h4 className="text-[#F0F0F0] text-lg font-medium hidden md:block">Location</h4>
           </div>
@@ -76,9 +76,9 @@ const Navbar = () => {
                 </Link>
                 
               </li>
-              <li className="flex items-center w-[98px] h-[50px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full " >
+              <li className="" >
 
-              {isLoggedIn ? "Hi eggys" :  <div className="flex items-center justify-center cursor-pointer">
+              {isLoggedIn ? <div className="text-white">Hi eggys</div> :  <div className="cursor-pointer flex items-center w-[98px] h-[50px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full ">
                 
                 <img src={loginLogo} alt="login-logo" /> <span className="ps-2 text-[#100101] font-[500] text-[20px]"> <AuthModal text="Login"/>  </span>
                 </div> }
