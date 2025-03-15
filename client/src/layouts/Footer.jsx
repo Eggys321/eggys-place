@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex justify-center ">
           <img src={navLogo} alt="nav-logo" />
         </div>
-        <div className="py-6">
+        <div className="md:py-6">
           <ul className="lg:flex gap-6 text-[20px] font-[40] text-[#FBFBFB]">
             <li>About</li>
             <li>Products</li>
@@ -21,7 +21,7 @@ const Footer = () => {
             <li>Terms & Conditions</li>
           </ul>
         </div>
-        <div className="inline-flex gap-x-5 ">
+        <div className="hidden md:inline-flex gap-x-5 ">
           <img src={xLogo} alt="x-logo" className="w-8" />
           <img src={facebookLogo} alt="facebook-logo" className="w-8" />
           <img src={twitterLogo} alt="twitter-logo" className="w-8" />

@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import deleteIcon from "../assets/waste-bin.svg";
 import CartContext from '../context/CartContext';
 import UseTitle from '../Hooks/UseTitle';
+import {  toast } from 'sonner';
+
 
 const Cart = () => {
     const {cart,setCart} = useContext(CartContext)
@@ -58,7 +60,7 @@ const Cart = () => {
 
                             </div>
                             <div className='flex items-center flex-col gap-8'>
-                                <img onClick={()=> handleRemove(_id)} className='cursor-pointer ' src={deleteIcon} alt="waste-bin" />
+                                <img onClick={()=> {handleRemove(_id),toast.success('Item removed') }} className='cursor-pointer ' src={deleteIcon} alt="waste-bin" />
                                 <div className='flex items-center gap-4'>
                                     <h2 className=' cursor-pointer bg-yellow-500 p-3 rounded-full' onClick={()=>handleInc(_id)}>+</h2>
                                     <p> {quantity} </p>
