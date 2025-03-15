@@ -70,7 +70,7 @@ const Navbar = () => {
             {/* <h2 className="font-medium text-lg text-[#FBFBFB] hidden lg:block whitespace-nowrap">All Products</h2> */}
             <ul className="flex gap-4 lg:gap-6 items-center">
               <li className="flex items-center justify-center w-[76px] h-[50px] md:w-[142px] lg:h-[56px] py-[15px]  lg:px-[20px]  bg-[#B67B0F] rounded-[100px] lg:rounded-[32px]">
-                <Link className="flex items-center justify-center" to="cart">
+                <Link className="flex items-center justify-center" to="/cart">
                 
                 <img src={cartLogo} alt="cart-logo" /> <span className="ps-2 text-[#FBFBFB] font-[500] text-[20px]"> <span className="hidden md:inline-block">Cart</span>  {cart.length} </span>
                 </Link>
@@ -78,10 +78,10 @@ const Navbar = () => {
               </li>
               <li className="flex items-center w-[98px] h-[50px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full " >
 
-              {isLoggedIn ? "Hi eggys" :  <Link className="flex items-center justify-center">
+              {isLoggedIn ? "Hi eggys" :  <div className="flex items-center justify-center cursor-pointer">
                 
                 <img src={loginLogo} alt="login-logo" /> <span className="ps-2 text-[#100101] font-[500] text-[20px]"> <AuthModal text="Login"/>  </span>
-                </Link> }
+                </div> }
 
                
                 

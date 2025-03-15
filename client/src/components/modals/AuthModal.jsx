@@ -29,7 +29,7 @@ const AuthModal = ({ text, isOpen, onClose }) => {
       <div onClick={() => document.getElementById("my_modal_2").showModal()}>
         {text}
       </div>
-      <dialog id="my_modal_2" className="modal ">
+      <dialog id="my_modal_2" className="modal">
         <div className="modal-box bg-[#100101]">
           <h2 onClick={closeModal} className="text-end cursor-pointer text-white">X</h2>
 

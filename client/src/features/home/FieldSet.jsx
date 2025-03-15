@@ -4,7 +4,7 @@ const FieldSet = ({selectedCat,setSelectedCat}) => {
   return (
     <>
      <fieldset className="fieldset mt-5 ">
-            <select defaultValue="Pick a browser" className="select w-full rounded-[12px] h-[56px]"         onChange={(e) => setSelectedCat(e.target.value)}
+            <select className="select w-full rounded-[12px] h-[56px]"         onChange={(e) => setSelectedCat(e.target.value)}
          value={selectedCat}
             >
               <option disabled={true}>Select a category</option>
