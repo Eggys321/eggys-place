@@ -1,7 +1,5 @@
 // import * as yup from "yup";
-// import * as Yup from "yup";
-const Yup = await import("yup");
-
+import * as Yup from "../../vite.config";
 
 // for sign in
 export const signInSchema = Yup
