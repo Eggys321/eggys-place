@@ -1,4 +1,5 @@
-import * as yup from "yup";
+// import * as yup from "yup";
+const yup = require("yup")
 
 // for sign in
 export const signInSchema = yup
