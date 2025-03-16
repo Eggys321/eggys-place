@@ -1,8 +1,7 @@
-// import * as yup from "yup";
-import * as Yup from "../../vite.config";
+import * as yup from "yup";
 
 // for sign in
-export const signInSchema = Yup
+export const signInSchema = yup
   .object({
     email: yup
       .string()
@@ -15,7 +14,7 @@ export const signInSchema = Yup
   })
   .required();
 // for sign up
-export const signUpSchema = Yup
+export const signUpSchema = yup
 .object({
   firstName: yup.string().required("first name is required"),
   lastName: yup.string().required("last name is required"),

@@ -13,7 +13,7 @@ body {
 }
 
 .modal-open dialog {
-  display: block !important;
+  /* display: block !important; */
 }
 
 @theme {
