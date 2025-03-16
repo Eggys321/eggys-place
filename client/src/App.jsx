@@ -8,11 +8,20 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import { Toaster, toast } from 'sonner';
 import ScrollToTop from "./utils/ScrollToTop";
+import LocationModal from "./components/modals/LocationModal";
 
 
 // const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
 
 function App() {
+  const [location, setLocation] = useState("");
+
+  useEffect(() => {
+    const savedLocation = localStorage.getItem("userLocation");
+    if (savedLocation) {
+      setLocation(savedLocation);
+    }
+  }, []);
   // const [cart, setCart] = useState(cartItemsFromLocalStorage);
   // useEffect(()=>{
   //   localStorage.setItem('cart',JSON.stringify(cart))
@@ -68,6 +77,7 @@ function App() {
         <Suspense fallback={<div className="flex justify-center items-center h-screen"> <LoadingRing/> </div>}>
         <Navbar/>
         <ScrollToTop/>
+        <LocationModal onLocationSelect={setLocation}/>
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/product/:id" element={<Product/>}/>

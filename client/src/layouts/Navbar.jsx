@@ -14,6 +14,7 @@ const Navbar = () => {
   const [isLoggedIn,setIsloggedIn] = useState(false);
   const [isTrue,setIsTrue] = useState(false);
   const {cart} = useContext(CartContext);
+  const savedLocation = localStorage.getItem("userLocation");
   // console.log(cart);
   
   // const [isOpen,setIsOpen] = useState()
@@ -22,7 +23,7 @@ const Navbar = () => {
   }
   return (
     <>
-      <header className="bg-[#100101] w-full sticky z-10 top-0 ">
+      <header className="bg-[#100101] w-full sticky z-10 top-0">
         <nav className="wrapper gap-4 lg:gap-8 xl:gap-12 flex justify-between items-center">
           {/* <div className="flex items-center gap-4 lg:gap-6">
             <div className="">
@@ -54,7 +55,7 @@ const Navbar = () => {
           </div>
           <div className="lg:flex items-center gap-3 lg:gap-5 md:me-1 hidden ">
             <img src={locationImg} alt="location-logo" className="w-5 md:w-full h-auto" />
-            <h4 className="text-[#F0F0F0] text-lg font-medium hidden md:block">Location</h4>
+            <h4 className="text-[#F0F0F0] text-lg font-medium hidden md:block">{ savedLocation ? savedLocation :"Location"}</h4>
           </div>
           <div className="hidden lg:block">
 
@@ -89,7 +90,7 @@ const Navbar = () => {
             </ul>
           </div>
         </nav>
-        <div className="wrapper">
+        <div className="w-full mx-auto  px-[14px]  md:px-0 py-[10px] md:py-0 ">
         {isTrue && <SearchField/>}
 
         </div>
