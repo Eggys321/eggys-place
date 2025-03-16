@@ -8,5 +8,9 @@ export default defineConfig({
   plugins: [react() ,  tailwindcss()],
   optimizeDeps: {
     include: ["yup"],
+  }, build: {
+    rollupOptions: {
+      external: ["yup"]
+    },
   },
 })
