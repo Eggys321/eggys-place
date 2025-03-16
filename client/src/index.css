@@ -12,7 +12,9 @@ body {
 
 }
 
-
+.modal-open dialog {
+  display: block !important;
+}
 
 @theme {
   --font-Rammetto-one: "Rammetto One", sans-serif; 

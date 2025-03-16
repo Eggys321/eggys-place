@@ -6,9 +6,14 @@ const LocationModal = ({ onLocationSelect }) => {
 
   useEffect(() => {
     const savedLocation = localStorage.getItem("userLocation");
+    console.log("Saved Location:", savedLocation); // Debugging
+
     if (!savedLocation && modalRef.current) {
-      modalRef.current.showModal(); 
-    }
+        document.body.classList.add("modal-open");
+
+        setTimeout(() => {
+            modalRef.current?.showModal();
+          }, 1000);    }
   }, []);
 
   const handleSelectLocation = (location) => {
@@ -22,10 +27,10 @@ const LocationModal = ({ onLocationSelect }) => {
 
   return (
     <dialog ref={modalRef} className="modal ">
-      <div className="modal-box bg-[#100101] text-white pb-10">
+      <div className="modal-box  pb-10">
         <div className="flex justify-center">
 
-        <img src={navLogo} alt="" />
+        <img src={navLogo} alt="bg-black"   className="bg-black rounded-[10px] p-2"/>
         </div>
         <h3 className="font-bold text-lg text-center py-6">What's your location?</h3>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
