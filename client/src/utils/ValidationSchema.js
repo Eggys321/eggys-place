@@ -1,7 +1,8 @@
-import * as yup from "yup";
+// import * as yup from "yup";
+import * as Yup from "yup";
 
 // for sign in
-export const signInSchema = yup
+export const signInSchema = Yup
   .object({
     email: yup
       .string()
@@ -14,7 +15,7 @@ export const signInSchema = yup
   })
   .required();
 // for sign up
-export const signUpSchema = yup
+export const signUpSchema = Yup
 .object({
   firstName: yup.string().required("first name is required"),
   lastName: yup.string().required("last name is required"),
