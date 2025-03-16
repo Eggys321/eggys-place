@@ -1,5 +1,7 @@
 // import * as yup from "yup";
-import * as Yup from "yup";
+// import * as Yup from "yup";
+const Yup = await import("yup");
+
 
 // for sign in
 export const signInSchema = Yup
