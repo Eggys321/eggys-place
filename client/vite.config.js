@@ -10,6 +10,9 @@ export default defineConfig({
     rollupOptions: {
       external: ["yup"]
     },
+    commonjsOptions: {
+      transformMixedEsModules: true,  
+    },
   },
   optimizeDeps: {
     include: ["yup"],
