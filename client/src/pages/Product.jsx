@@ -5,6 +5,8 @@ import MyButton from "../components/MyButton";
 import { useEffect } from "react";
 import CartContext from "../context/CartContext";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
+import rateIcon from "../assets/rating-icon.svg"
 
 const Product = () => {
   const { handleAddToCart } = useContext(CartContext);
@@ -29,7 +31,7 @@ const Product = () => {
       <main className="wrapper bg-[#2F2F2F]  ">
         <section className="md:grid grid-cols-2 py-5 ">
           <div className="">
-            <img src={product.image} alt="" className="w-screen object-cover" />
+            <img src={product.image} alt="" className="w-[650px] object-cover" />
           </div>
           <div className="text-[#FFFFFF] md:px-8 flex flex-col justify-center gap-y-[20px] ">
             <h1 className="font-[500] text-[34px]"> {product.title} </h1>
@@ -47,14 +49,57 @@ const Product = () => {
           </div>
         </section>
 
-        <section className="mt-10 ">
+        <section className="mt-10 snap-x ">
           <h2 className="text-white text-4xl pb-6">Others You Might Like</h2>
-          <div className="inline-flex flex-wrap justify-between gap-8">
+          <div className="flex overflow-x-auto snap-x scroll-smooth space-x-3 md:space-x-6 pb-4 no-scrollbar">
             {similarProducts.map((similarProduct) => {
-              const {_id,image,title} = similarProduct
+              const {_id,image,title,rating,price,duration} = similarProduct
               return (
-                <div className="" key={_id}>
-                  <img src={image} alt={title} className="" />
+               <div
+                  key={_id}
+                  className="card bg-[#252422] w-[300px] md:w-[340px] md:min-w-[340px]  flex-none snap-start p-[16px] shadow-sm "
+                >
+                  <Link to={`/product/${_id}`}>
+                  
+                  <figure>
+                    <img
+                      src={image}
+                      alt="Shoes"
+                      className="w-full h-auto object-cover "
+                    />
+                  </figure>
+                  </Link>
+                  <div className="pt-4">
+                    <div className="flex justify-between items-center">
+                      <h2 className="card-title font-[500] text-[20px] text-[#FBFBFB] ">
+                        {title}{" "}
+                      </h2>
+                      <div className="flex gap-x-2 border border-[#B67B0F] py-[6px] px-[4px] rounded-[2px] ">
+                        <img src={rateIcon} alt="rate-icon" />
+                        <p className="text-[#FBFBFB] font-[400] text-[14px]">
+                          {" "}
+                          {rating}{" "}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-[#B67B0F]  py-5 ">
+                        {" "}
+                        <span className="font-[200] text-[23px]">
+                          &#8358;
+                        </span>{" "}
+                        <span className="font-[500] text-[31px]">{price}</span>{" "}
+                      </p>
+                      <p className="text-[#FBFBFB]"> {duration} </p>
+                    </div>
+                    <div className="card-actions justify-center ">
+                      <MyButton
+                        text="Add to cart"
+                        className="w-full h-[56px]"
+                        onClick={()=> {handleAddToCart(similarProduct) ,  toast.success('Item added')  } }
+                      />
+                    </div>
+                  </div>
                 </div>
               );
             })}

@@ -160,7 +160,7 @@ export const menuItems = [
       
       {
         _id: 14,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-11_zka2ap.avif",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741691086/eggys-place/drink-1_yzmo3a.svg",
         title: "Drinks",
         rating: "5.0",
         price: "5000",
@@ -171,7 +171,7 @@ export const menuItems = [
       
       {
         _id: 15,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-14_dxk3b2.avif",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741691087/eggys-place/drink-2_d9izgf.svg",
         title: "Drinks",
         rating: "5.0",
         price: "5000",
@@ -182,7 +182,7 @@ export const menuItems = [
       
       {
         _id: 16,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741812165/drink-13_noh0rp.avif",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741691088/eggys-place/drink-3_lobeke.svg",
         title: "Drinks",
         rating: "5.0",
         price: "5000",
@@ -193,7 +193,7 @@ export const menuItems = [
       
       {
         _id: 17,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741812482/drink-15_xx3rur.avif",
+        image: "https://res.cloudinary.com/eguono/image/upload/v1741691089/eggys-place/drink-4_xmuc8l.svg",
         title: "Drinks",
         rating: "5.0",
         price: "5000",
@@ -285,17 +285,6 @@ export const menuItems = [
       
       {
         _id: 25,
-        image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/chips-4_i0odlp.svg",
-        title: "Chips",
-        rating: "5.0",
-        price: "4000",
-        category:"Chips",
-        duration: "15-20mins",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
-      },
-      
-      {
-        _id: 26,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/chips-4_i0odlp.svg",
         title: "Chips",
         rating: "5.0",
