@@ -47,7 +47,7 @@ const Cart = () => {
                         </div>
                       <div className="flex flex-col gap-2">
 
-                      <h1 className="font-[500] text-[18px]"> {title} </h1>
+                      <h1 className="font-[500] text-[18px]"> {title.slice(0,7)} </h1>
                       <p className="font-[400] text-[12px] text-[#FBFBFB]"> 14/01/2025 </p>
                       <h2 >  <span className="text-[#B67B0F] font-[500] text-[18px]">
                           &#8358;
@@ -88,7 +88,7 @@ const Cart = () => {
               })}
             </div>
           </section>
-          <section className="p-[15px] rounded-[10px] bg-black w-full h-fit mt-3">
+          <section className="p-[15px] rounded-[10px] bg-black w-full h-fit mt-3 sticky top-24 ">
             <h1 className="font-[500] text-[24px] pb-[15px]">Summary</h1>
             <div className="bg-[#252422] p-[10px] rounded-[8px] w-full">
               <h3> product Total ({cart.length}) </h3>

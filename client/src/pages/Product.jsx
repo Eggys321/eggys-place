@@ -29,7 +29,7 @@ const Product = () => {
   return (
     <>
       <main className="wrapper bg-[#2F2F2F]  ">
-        <section className="md:grid grid-cols-2 py-5 ">
+        <section className="md:grid grid-cols-2 py-1 ">
           <div className="">
             <img src={product.image} alt="" className="w-[650px] object-cover" />
           </div>
