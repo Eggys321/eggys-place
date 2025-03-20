@@ -68,17 +68,15 @@ const Menu = () => {
                       <div className="flex gap-x-2 border border-[#B67B0F] py-[6px] px-[4px] rounded-[2px] ">
                         <img src={rateIcon} alt="rate-icon" />
                         <p className="text-[#FBFBFB] font-[400] text-[14px]">
-                          {" "}
-                          {rating}{" "}
+                          {rating}
                         </p>
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
                       <p className="text-[#B67B0F]  py-5 ">
-                        {" "}
                         <span className="font-[200] text-[23px]">
                           &#8358;
-                        </span>{" "}
+                        </span>
                         <span className="font-[500] text-[31px]">{price}</span>{" "}
                       </p>
                       <p className="text-[#FBFBFB]"> {duration} </p>
