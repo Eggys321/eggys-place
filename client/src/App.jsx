@@ -1,14 +1,16 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, useState,useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { Home, Navbar } from "./routes/routes";
 import Footer from "./layouts/Footer";
-import LoadingRing  from "./utils/Loader";
+import LoadingRing from "./utils/Loader";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
-import { Toaster, toast } from 'sonner';
+import { Toaster, toast } from "sonner";
 import ScrollToTop from "./utils/ScrollToTop";
 import LocationModal from "./components/modals/LocationModal";
+import ResetPwd from "./auth/ResetPwd";
+import ForgotPwd from "./auth/ForgotPwd"
 
 
 // const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
@@ -38,9 +40,9 @@ function App() {
   //       const newItem = {...item, quantity:1}
   //       setCart([...cart,newItem]);
   //       console.log([...cart,newItem]);
-        
+
   //     }
-      
+
   //   }
   // const [cart, setCart] = useState(cartItemsFromLocalStorage);
   // useEffect(()=>{
@@ -48,8 +50,7 @@ function App() {
 
   // },[cart])
   // console.log(cart);
-  
-  
+
   // let handleAddToCart = (product) => {
   //   const productSelected = cart.find(
   //     (singleCart) => singleCart._id === product._id
@@ -67,23 +68,37 @@ function App() {
   //     );
   //   } else {
   //     setCart([...cart, { ...product, quantity: 1 }]);
-  //   }    
+  //   }
   // };
-  
 
   return (
     <>
       <BrowserRouter>
-        <Suspense fallback={<div className="flex justify-center items-center h-screen"> <LoadingRing/> </div>}>
-        <Navbar/>
-        <ScrollToTop/>
-        <LocationModal onLocationSelect={setLocation}/>
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center h-screen">
+              {" "}
+              <LoadingRing />{" "}
+            </div>
+          }
+        >
+          <ScrollToTop />
+          <LocationModal onLocationSelect={setLocation} />
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/product/:id" element={<Product/>}/>
-            <Route path="/cart" element={<Cart/>}/>
+            <Route
+              element={
+                <>
+                  <Navbar /> <Footer />
+                </>
+              }
+            >
+              <Route path="/" element={<Home />} />
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
+            <Route path="/reset-password" element={<ResetPwd/>}/>
+            <Route path="/forgot-password" element={<ForgotPwd/>}/>
           </Routes>
-          <Footer/>
         </Suspense>
       </BrowserRouter>
       <Toaster />
@@ -100,7 +115,6 @@ function App() {
         </Suspense>
       </BrowserRouter>
       <Toaster /> */}
-
     </>
   );
 }

@@ -3,7 +3,7 @@ import React from 'react'
 const SearchField = () => {
   return (
     <>
-    <form className="w-full">
+    <form className="w-full wrapper">
               <input
                 type="text"
                 placeholder="Search"

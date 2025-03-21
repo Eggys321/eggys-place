@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import navLogo from "../assets/nav-logo.svg";
 import locationImg from "../assets/location-img.svg";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import cartLogo from "../assets/cart-img.svg";
 import loginLogo from "../assets/login-img.svg";
 import { LocationDropDownFN } from "../utils/DropDown";
@@ -51,7 +51,7 @@ const Navbar = () => {
           <img src={navLogo} alt="nav-logo" className="w-10 md:w-full h-auto" />
             </Link>
           <div onClick={toggleSearch} className="lg:hidden">
-            <img src={searchLogo} alt="search logo" className="w-7 md:w-20 cursor-pointer"  />
+            <img src={searchLogo} alt="search logo" className="w-7 md:w-14 cursor-pointer"  />
           </div>
           <div className="lg:flex items-center gap-3 lg:gap-5 md:me-1 hidden ">
             <img src={locationImg} alt="location-logo" className="w-5 md:w-full h-auto" />
@@ -95,6 +95,7 @@ const Navbar = () => {
 
         </div>
       </header>
+      <Outlet/>
     </>
   );
 };

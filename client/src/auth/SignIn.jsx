@@ -45,7 +45,7 @@ const SignIn = ({ switchToSignUp }) => {
           <p className="text-red-600">{errors.password?.message}</p>
           </div>
 
-          <Link className="text-[#FBFBFB] text-[10px] font[400] underline">Forgot Password?</Link>
+          <Link to="/forgot-password" className="text-[#FBFBFB] text-[10px] font[400] underline">Forgot Password?</Link>
           <MyButton text="Sign In" className="w-full h-[40px] font-[500] text-[20px] "  />
         </form>
         <p className="py-4">
