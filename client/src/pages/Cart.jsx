@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import CartContext from "../context/CartContext";
 import UseTitle from "../Hooks/UseTitle";
 import SimilarProducts from "../components/SimilarProducts";
-import CartSummary from "../features/cart/CartSummary";
+import CartSummary from "../components/CartSummary";
 import CartItems from "../features/cart/CartItems";
 
 const Cart = () => {

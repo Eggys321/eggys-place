@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import CartContext from "../../context/CartContext";
-import MyButton from "../../components/MyButton";
-import { calculateTotalPrice } from "../../utils/CartUtils";
+import CartContext from "../context/CartContext";
+import MyButton from "./MyButton";
+import { calculateTotalPrice } from "../utils/CartUtils";
 
 const CartSummary = () => {
   const { cart } = useContext(CartContext);
