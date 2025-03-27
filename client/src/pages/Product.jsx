@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { menuItems } from "../db";
 import MyButton from "../components/MyButton";
@@ -7,15 +7,39 @@ import CartContext from "../context/CartContext";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import rateIcon from "../assets/rating-icon.svg"
-
+const baseUrl = import.meta.env.VITE_API_URL;
 const Product = () => {
   const { handleAddToCart } = useContext(CartContext);
-  const { id } = useParams();
-  const product = menuItems.find((item) => item._id == id);
-  const similarProducts = menuItems
-    .filter((item) => item.category == product.category)
-    .map((it) => it);
- 
+  const [product,setProduct] = useState(null)
+  const [similarProducts, setSimilarProducts] = useState([]);
+  // const { id } = useParams();
+  // const product = menuItems.find((item) => item._id == id);
+  // const similarProducts = menuItems
+  //   .filter((item) => item.category == product.category)
+  //   .map((it) => it);
+  
+  const { productId } = useParams();
+  // console.log(productId);
+  
+
+  const fetchProduct = async ()=>{
+    try {
+      const req = await fetch(`${baseUrl}/${productId}`);
+      const res = await req.json();
+      // console.log(res.product);
+      setProduct(res.product)
+
+      const allProducts = await fetch(`${baseUrl}/all-products`);
+      const allProductsData = await allProducts.json();
+      const filteredSimilarProducts = allProductsData.products.filter((item)=>item.category === res.product.category && item._id);
+
+      setSimilarProducts(filteredSimilarProducts);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
 
   useEffect(() => {
     // window.scrollTo(0, 0);
@@ -24,20 +48,21 @@ const Product = () => {
     //   left: 0,
     //   behavior: "smooth",
     // });
-  },[]);
+    fetchProduct()
+  },[productId]);
 
   return (
     <>
       <main className="wrapper bg-[#2F2F2F]  ">
         <section className="md:grid grid-cols-2 py-1 ">
           <div className="">
-            <img src={product.image} alt="" className="w-[650px] object-cover" />
+            <img src={product?.image} alt="" className="w-[650px] object-cover" />
           </div>
           <div className="text-[#FFFFFF] md:px-8 flex flex-col justify-center gap-y-[20px] ">
-            <h1 className="font-[500] text-[34px]"> {product.title} </h1>
+            <h1 className="font-[500] text-[34px]"> {product?.title} </h1>
             <p className="font-[400] text-[20px] py-4">
               {" "}
-              {product.description}{" "}
+              {product?.description}{" "}
             </p>
             <MyButton
               onClick={() => {

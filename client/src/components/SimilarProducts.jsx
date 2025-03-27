@@ -27,7 +27,7 @@ const SimilarProducts = () => {
             return(
               <div
               key={_id}
-              className="card bg-[#252422] w-100 md:w-90 lg:w-118 xl:w-108 p-[16px] my-1 md:my-0 shadow-sm"
+              className="card bg-[#252422] w-100 md:w-90 lg:w-118 xl:w-110 p-[16px] my-1 md:my-0 shadow-sm"
             >
               <Link to={`/product/${_id}`}>
               

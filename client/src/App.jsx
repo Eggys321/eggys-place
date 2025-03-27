@@ -93,7 +93,7 @@ function App() {
               }
             >
               <Route path="/" element={<Home />} />
-              <Route path="/product/:id" element={<Product />} />
+              <Route path="/product/:productId" element={<Product />} />
               <Route path="/cart" element={<Cart />} />
             </Route>
             <Route path="/reset-password" element={<ResetPwd/>}/>
