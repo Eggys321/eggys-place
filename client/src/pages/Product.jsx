@@ -31,7 +31,7 @@ const Product = () => {
 
       const allProducts = await fetch(`https://eggys-place.onrender.com/api/product/all-products`);
       const allProductsData = await allProducts.json();
-      const filteredSimilarProducts = allProductsData.products.filter((item)=>item.category === res.product.category && item._id);
+      const filteredSimilarProducts = allProductsData.products.filter((item)=>item?.category === res.product?.category && item._id);
 
       setSimilarProducts(filteredSimilarProducts);
       
