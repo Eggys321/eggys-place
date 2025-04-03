@@ -36,7 +36,7 @@ const CartItems = () => {
                 <div className="flex flex-col gap-2">
                   <h1 className="font-[500] text-[18px]">
                     {" "}
-                    {title.slice(0, 7)}{" "}
+                    {title?.slice(0, 7)}{" "}
                   </h1>
                   <p className="font-[400] text-[12px] text-[#FBFBFB]">
                     {" "}
