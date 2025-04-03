@@ -23,7 +23,7 @@ const ForgotPwd = () => {
           <div className="mt-4">
 
           <MyButton
-            text="Reset Password"
+            text="Request Password Request"
             className="w-[350px] font-[500] text-[20px] md:w-[400px] h-[56px]"
           />
           </div>
