@@ -2,10 +2,15 @@ import React, { useContext } from "react";
 import CartContext from "../context/CartContext";
 import MyButton from "./MyButton";
 import { calculateTotalPrice } from "../utils/CartUtils";
+import {useNavigate} from "react-router-dom"
 
 const CartSummary = () => {
   const { cart } = useContext(CartContext);
   const totalPrice = calculateTotalPrice(cart);
+  const navigate = useNavigate()
+  function handleCheckOut (){
+    navigate("/check-out")
+  }
 
   return (
     <section className="p-[15px] rounded-[10px] bg-black w-full h-fit mt-3 sticky top-31 ">
@@ -46,7 +51,8 @@ const CartSummary = () => {
       <div className="mt-4">
         <MyButton
           text="Check Out"
-          className="w-full h-[56px] text-[20px] font-[500] "
+          className="w-full h-[56px] text-[20px] font-[500]"
+          onClick={handleCheckOut}
         />
       </div>
     </section>
