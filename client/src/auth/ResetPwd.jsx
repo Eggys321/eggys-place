@@ -4,16 +4,38 @@ import MyButton from "../components/MyButton";
 import brandLogo from "../assets/nav-logo.svg";
 import visibilityOn from "../assets/visibility_on.svg";
 import visibilityOff from  "../assets/visibility_off.svg";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { resetPwdLinkSchema } from '../utils/ValidationSchema';
+import { toast } from 'sonner';
+import LoadingRing from "../utils/Loader";
+
 
 const ResetPwd = () => {
     const [isReveal, setIsReveal] = useState(false)
-     const [isReveal2, setIsReveal2] = useState(false)
+    const [isReveal2, setIsReveal2] = useState(false)
+    const {
+      register,
+      handleSubmit,
+      formState: { errors, isSubmitting },
+    } = useForm({
+      resolver: yupResolver(resetPwdLinkSchema),
+      defaultValues: {
+        password: "",
+        cPassword: "",
+      },
+    });
       function togglePwd(){
         setIsReveal((prev)=> !prev)
       }
       function togglePwd2(){
         setIsReveal2((prev)=> !prev)
       }
+
+
+      const onSubmit = async (data) => console.log(data);
+      const btnTxt = isSubmitting ? <LoadingRing/> : "Reset Password"
+
   return (
     <>
       <main className="bg-[#2F2F2F] h-screen flex flex-col text-center  md:text-start justify-center items-center">
@@ -28,13 +50,14 @@ const ResetPwd = () => {
             Enter Your New Password
           </p>
         </section>
-        <form className="mt-4 ">
+        <form className="mt-4" onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="relative w-full">
             <Input
               type={isReveal ? "text" : "password"}
               placeholder="Password"
               name="password"
-            
+              {...register("password", { required: true })}
             />
             <img
               className=" absolute top-2.5  left-[90%] cursor-pointer "
@@ -42,13 +65,15 @@ const ResetPwd = () => {
               alt="toggle-password-img"
               onClick={togglePwd}
             />
-            {/* <p className="text-red-600">{errors.password?.message}</p> */}
+            <p className="text-red-600">{errors.password?.message}</p>
           </div>
           <div className="relative w-full my-4">
             <Input
               type={isReveal2 ? "text" : "password"}
               placeholder="Confirm Password"
-              name="cpassword"
+              name="cPassword"
+              {...register("cPassword", { required: true })}
+
             />
             <img
               className=" absolute top-2.5  left-[90%] cursor-pointer"
@@ -56,11 +81,13 @@ const ResetPwd = () => {
               alt="toggle-password-img"
               onClick={togglePwd2}
             />
-            {/* <p className="text-red-600">{errors.cPassword?.message}</p> */}
+            <p className="text-red-600">{errors.cPassword?.message}</p>
           </div>
           <div className="mt-4">
             <MyButton
-              text="Reset Password"
+                          disabled={isSubmitting}
+
+              text={btnTxt}
               className="w-[350px] font-[500] text-[20px] md:w-[400px] h-[56px]"
             />
           </div>

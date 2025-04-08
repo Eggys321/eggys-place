@@ -7,6 +7,8 @@ import visibilityOff from  "../assets/visibility_off.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../utils/ValidationSchema";
+import LoadingRing from "../utils/Loader";
+import { toast } from "sonner";
 
 const SignIn = ({ switchToSignUp }) => {
   const [isReveal, setIsReveal] = useState(false)
@@ -17,11 +19,43 @@ const SignIn = ({ switchToSignUp }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors,isSubmitting },
+    reset
   } = useForm({
     resolver: yupResolver(signInSchema),
   })
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async(data) => {
+    try {
+      const req = await fetch("https://eggys-place.onrender.com/api/auth/sign-in",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+      })
+      const res = await req.json();
+      console.log(res);
+      if(!res.success){
+        toast.error(res.errMsg)
+        reset()
+      }
+      if(res.success){
+        toast.success(res.message)
+        localStorage.setItem("customerToken",res.user.token)
+        reset()
+      }
+    } catch (error) {
+      if(error.message == "Failed to fetch"){
+
+        toast.error("connection failed")
+        return
+      }
+      toast.error(error.message)
+      
+    }
+  }
+  const btnText  = isSubmitting   ? <LoadingRing/> : "Sign In";
+
   return (
     <>
       <main>
@@ -46,7 +80,7 @@ const SignIn = ({ switchToSignUp }) => {
           </div>
 
           <Link to="/forgot-password" className="text-[#FBFBFB] text-[10px] font[400] underline">Forgot Password?</Link>
-          <MyButton text="Sign In" className="w-full h-[40px] font-[500] text-[20px] "  />
+          <MyButton text={btnText} className="w-full h-[40px] font-[500] text-[20px] " disabled={isSubmitting} />
         </form>
         <p className="py-4">
           <span className="text-[15px] font-[400] text-[#FBFBFB] ">Don't have an account?</span> <span

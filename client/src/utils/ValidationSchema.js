@@ -35,3 +35,31 @@ export const signUpSchema = Yup
     .oneOf([Yup.ref("password")], "password do not match"),
   })
   .required();
+
+
+  // for forgot password
+export const forgotPasswordSchema = Yup
+.object({
+  email: Yup
+    .string()
+    .required("Email is required")
+    .email("Invalid email format"),
+})
+.required();
+
+
+// for resetpasswordlink
+export const resetPwdLinkSchema = Yup
+  .object({
+    password: Yup
+      .string()
+      .required("password is required")
+      .min(8, "min lenght of password should be at least 8 chrs"),
+
+    cPassword: Yup
+      .string()
+      .required("confirm password is required")
+      .min(8, "min lenght of password should be at least 8 chrs")
+      .oneOf([Yup.ref("password")], "Password do not match"),
+  })
+  .required();

@@ -18,11 +18,11 @@ export const signUp = async (req, res) => {
     res.status(400).json({ success: false, errMsg: "password do not match" });
     return;
   }
-
+  
   if (password.length < 8) {
     res
-      .status(400)
-      .json({ success: false, errMsg: "min password length must be 8 chrs" });
+    .status(400)
+    .json({ success: false, errMsg: "min password length must be 8 chrs" });
     return;
   }
 
@@ -32,16 +32,17 @@ export const signUp = async (req, res) => {
       res.status(400).json({ success: false, errMsg: "Email already exists" });
       return;
     }
-
+    
     const user = await USER.create({ ...req.body });
     res
-      .status(201)
-      .json({ success: true, message: "registration successful", user });
+    .status(201)
+    .json({ success: true, message: "registration successful", user });
   } catch (error) {
     res.status(500).json(error.message);
   }
 };
 
+// sign in
 export const signIn = async (req, res) => {
   const { email, password } = req.body;
   try {

@@ -28,7 +28,7 @@ const Product = () => {
         `https://eggys-place.onrender.com/api/product/${productId}`
       );
       const res = await req.json();
-      // console.log(res.product);
+      console.log(res);
       setProduct(res.product);
 
       const allProducts = await fetch(

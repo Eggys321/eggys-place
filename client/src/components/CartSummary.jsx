@@ -2,11 +2,15 @@ import React, { useContext } from "react";
 import CartContext from "../context/CartContext";
 import MyButton from "./MyButton";
 import { calculateTotalPrice } from "../utils/CartUtils";
-import {useNavigate} from "react-router-dom"
+import {useNavigate,useLocation} from "react-router-dom"
 
 const CartSummary = () => {
   const { cart } = useContext(CartContext);
   const totalPrice = calculateTotalPrice(cart);
+const location = useLocation()
+
+  // console.log(location.pathname);
+  
   const navigate = useNavigate()
   function handleCheckOut (){
     navigate("/check-out")
@@ -49,11 +53,20 @@ const CartSummary = () => {
         </div>
       </div>
       <div className="mt-4">
-        <MyButton
+        {location.pathname === "/check-out" ? <>
+          <MyButton
+          text="Pay Now"
+          className="w-full h-[56px] text-[20px] font-[500]"
+          // onClick={handleCheckOut}
+        />
+        </> : <>
+          <MyButton
           text="Check Out"
           className="w-full h-[56px] text-[20px] font-[500]"
           onClick={handleCheckOut}
         />
+        </>}
+       
       </div>
     </section>
   );
