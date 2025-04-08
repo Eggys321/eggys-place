@@ -25,14 +25,14 @@ const Product = () => {
     try {
       setIsLoading(true);
       const req = await fetch(
-        `https://eggys-place.onrender.com/api/product/${productId}`
+        `${baseUrl}/api/product/${productId}`
       );
       const res = await req.json();
       console.log(res);
       setProduct(res.product);
 
       const allProducts = await fetch(
-        `https://eggys-place.onrender.com/api/product/all-products`
+        `${baseUrl}/api/product/all-products`
       );
       const allProductsData = await allProducts.json();
       const filteredSimilarProducts = allProductsData.products.filter(

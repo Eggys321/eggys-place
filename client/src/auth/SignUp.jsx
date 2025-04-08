@@ -9,6 +9,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from "../utils/ValidationSchema";
 import {toast} from "sonner";
 import LoadingRing from "../utils/Loader"
+
+const baseUrl = import.meta.env.VITE_API_URL;
+
 const SignUp = ({switchToSignIn}) => {
    const [isReveal, setIsReveal] = useState(false)
    const [isReveal2, setIsReveal2] = useState(false);
@@ -30,9 +33,8 @@ const SignUp = ({switchToSignIn}) => {
       resolver: yupResolver(signUpSchema),
     })
     const onSubmit =async (data) => {
-      // setIsClicked(true)
       try {
-        const req = await fetch("https://eggys-place.onrender.com/api/auth/sign-up",{
+        const req = await fetch(`${baseUrl}/api/auth/sign-up`,{
           method:"POST",
           headers:{
             "Content-Type":"application/json"
@@ -40,10 +42,8 @@ const SignUp = ({switchToSignIn}) => {
           body:JSON.stringify(data)
         })
         const res = await req.json();
-        console.log(res);
         if(!res.success){
           toast.error(res.errMsg)
-          // setIsClicked(true)
           reset()
         }
         if(res.success){

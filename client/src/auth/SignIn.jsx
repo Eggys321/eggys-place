@@ -10,6 +10,8 @@ import { signInSchema } from "../utils/ValidationSchema";
 import LoadingRing from "../utils/Loader";
 import { toast } from "sonner";
 
+const baseUrl = import.meta.env.VITE_API_URL;
+
 const SignIn = ({ switchToSignUp }) => {
   const [isReveal, setIsReveal] = useState(false)
   function togglePwd(){
@@ -26,7 +28,7 @@ const SignIn = ({ switchToSignUp }) => {
   })
   const onSubmit = async(data) => {
     try {
-      const req = await fetch("https://eggys-place.onrender.com/api/auth/sign-in",{
+      const req = await fetch(`${baseUrl}/api/auth/sign-in`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"

@@ -9,13 +9,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPwdLinkSchema } from '../utils/ValidationSchema';
 import { toast } from 'sonner';
 import LoadingRing from "../utils/Loader";
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const ResetPwd = () => {
     const [isReveal, setIsReveal] = useState(false);
     const [isReveal2, setIsReveal2] = useState(false);
     const {resetToken} = useParams();
+    const navigate = useNavigate();
     const {
       register,
       handleSubmit,
@@ -37,7 +39,7 @@ const ResetPwd = () => {
 
       const onSubmit = async (data) => {
         try {
-          const req = await fetch(`https://eggys-place.onrender.com/api/auth/reset-password/${resetToken}`,{
+          const req = await fetch(`${baseUrl}/api/auth/reset-password/${resetToken}`,{
             method:"PUT",
             headers:{
               "Content-Type":"application/json"
@@ -50,6 +52,7 @@ const ResetPwd = () => {
           }
           if(res.success){
             toast.success(res.message);
+            navigate("/")
           }
         } catch (error) {
           console.log(error.message);
