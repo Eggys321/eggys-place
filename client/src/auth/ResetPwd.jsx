@@ -9,11 +9,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPwdLinkSchema } from '../utils/ValidationSchema';
 import { toast } from 'sonner';
 import LoadingRing from "../utils/Loader";
+import { useParams } from 'react-router-dom';
 
 
 const ResetPwd = () => {
-    const [isReveal, setIsReveal] = useState(false)
-    const [isReveal2, setIsReveal2] = useState(false)
+    const [isReveal, setIsReveal] = useState(false);
+    const [isReveal2, setIsReveal2] = useState(false);
+    const {resetToken} = useParams();
     const {
       register,
       handleSubmit,
@@ -33,7 +35,27 @@ const ResetPwd = () => {
       }
 
 
-      const onSubmit = async (data) => console.log(data);
+      const onSubmit = async (data) => {
+        try {
+          const req = await fetch(`https://eggys-place.onrender.com/api/auth/reset-password/${resetToken}`,{
+            method:"PUT",
+            headers:{
+              "Content-Type":"application/json"
+            },
+            body:JSON.stringify(data)
+          })
+          const res = await req.json();
+          if(!res.success){
+            toast.error(res.errMsg);
+          }
+          if(res.success){
+            toast.success(res.message);
+          }
+        } catch (error) {
+          console.log(error.message);
+          
+        }
+      };
       const btnTxt = isSubmitting ? <LoadingRing/> : "Reset Password"
 
   return (
