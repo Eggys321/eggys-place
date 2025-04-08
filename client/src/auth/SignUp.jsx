@@ -7,7 +7,7 @@ import visibilityOff from  "../assets/visibility_off.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from "../utils/ValidationSchema";
-import {toast} from "sonner";
+import { Toaster,toast } from "react-hot-toast";
 import LoadingRing from "../utils/Loader"
 
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -119,6 +119,8 @@ const SignUp = ({switchToSignIn}) => {
           </span>
         </p>
       </main>
+            <Toaster />
+      
     </>
   )
 }

@@ -7,7 +7,7 @@ import visibilityOff from  "../assets/visibility_off.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPwdLinkSchema } from '../utils/ValidationSchema';
-import { toast } from 'sonner';
+import { Toaster,toast } from "react-hot-toast";
 import LoadingRing from "../utils/Loader";
 import { useParams,useNavigate } from 'react-router-dom';
 
@@ -118,6 +118,8 @@ const ResetPwd = () => {
           </div>
         </form>
       </main>
+      <Toaster />
+
     </>
   );
 };

@@ -4,7 +4,7 @@ import MyButton from "../components/MyButton";
 import Input from "../components/Input";
 import { forgotPasswordSchema } from "../utils/ValidationSchema";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { Toaster,toast } from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import LoadingRing from "../utils/Loader";
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -72,6 +72,8 @@ const ForgotPwd = () => {
           </div>
         </form>
       </main>
+            <Toaster />
+      
     </>
   );
 };

@@ -1,6 +1,7 @@
 import USER from "../models/userModel.js";
 import { sendForgotPasswordMail } from "../emails/emailHandlers.js";
 import crypto from "crypto";
+import jwt from "jsonwebtoken";
 
 // sign up
 
@@ -76,6 +77,7 @@ export const signIn = async (req, res) => {
         user: {
           role: user.role,
           firstName: user.firstName,
+          _id: user._id,
           token,
         },
       });
@@ -144,3 +146,31 @@ export const resetPassword = async (req,res)=>{
 
   }
 }
+
+// isLoggedIn ftn
+export const isLoggedIn = async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader?.startsWith("Bearer ")) {
+      return res.status(401).json({ success: false, message: "Unauthorized" });
+    }
+
+    const token = authHeader.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Fetch the user from DB to get full info
+    const user = await USER.findById(decoded.userId).select("firstName role email");
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      user, 
+    });
+  } catch (error) {
+    console.error("isLoggedIn error:", error);
+    res.status(401).json({ success: false, message: "Invalid token" });
+  }
+};

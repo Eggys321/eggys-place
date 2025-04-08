@@ -8,12 +8,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../utils/ValidationSchema";
 import LoadingRing from "../utils/Loader";
-import { toast } from "sonner";
+import { Toaster,toast } from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
+
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
 const SignIn = ({ switchToSignUp }) => {
   const [isReveal, setIsReveal] = useState(false)
+  const {login} = useAuth()
   function togglePwd(){
     setIsReveal((prev)=> !prev)
   }
@@ -36,7 +39,6 @@ const SignIn = ({ switchToSignUp }) => {
         body:JSON.stringify(data)
       })
       const res = await req.json();
-      console.log(res);
       if(!res.success){
         toast.error(res.errMsg)
         reset()
@@ -44,6 +46,7 @@ const SignIn = ({ switchToSignUp }) => {
       if(res.success){
         toast.success(res.message)
         localStorage.setItem("customerToken",res.user.token)
+        login(res.user.token, res.user);
         reset()
       }
     } catch (error) {
@@ -93,6 +96,8 @@ const SignIn = ({ switchToSignUp }) => {
           </span>
         </p>
       </main>
+      <Toaster />
+
     </>
   );
 };

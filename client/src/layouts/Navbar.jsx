@@ -12,9 +12,11 @@ import CartContext from "../context/CartContext";
 import signInLogo from "../assets/sign-in-logo.png";
 import arrowDown from "../assets/drop-down-img.svg";
 import arrowUp from "../assets/arrow-up-2.png";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsloggedIn] = useState(false);
+  const [isLoggedIn, setIsloggedIn] = useState(!false);
+  const { user, logout } = useAuth();
   const [isTrue, setIsTrue] = useState(false);
   const { cart } = useContext(CartContext);
   const savedLocation = localStorage.getItem("userLocation");
@@ -97,31 +99,32 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="">
-                {isLoggedIn ? (
+                {user  ? (
                   <div className="text-white flex items-center gap-2">
-                    <img src={signInLogo} alt="sign-logo" /> Hi, Eggys{" "}
+                    <img src={signInLogo} alt="sign-logo" /><span className="hidden md:block "> Hi,  {user.firstName}{" "}</span>
                     <div>
                       <div className="dropdown dropdown-end">
                         <div tabIndex={0} className=" m-1">
                           <img
                             src={isClicked ? arrowUp : arrowDown}
                             alt="drop-down-img"
-                            className="cursor-pointer min-w-3"
+                            className="cursor-pointer min-w-3 mt-4"
                           />
                         </div>
                         <ul
                           tabIndex={0}
-                          className="dropdown-content menu  rounded-box z-1 w-30 h-30 text-[#FBFBFB] p-2 shadow-sm mt-5 bg-[#252422]"
+                          className="dropdown-content menu  rounded-box z-1 w-36 h-36 md:h-30 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
                         >
+                          <li className="ps-3 font-bold text-[16px] md:hidden "> Hi, {user.firstName}</li>
                           <li>
-                            <Link to="/DashBoard">DashBoard</Link>
+                            <Link to="/DashBoard">Dashboard</Link>
                           </li>
                           <li>
                             
                             <Link to="/orders">Orders</Link>
                           </li>
-                          <li>
-                            <a>Logout</a>
+                          <li onClick={logout} className="cursor-pointer ">
+                            Logout
                           </li>
                         </ul>
                       </div>
