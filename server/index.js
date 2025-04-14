@@ -3,6 +3,7 @@ import { connect } from "./config/db.js";
 import dotenv from "dotenv";
 import productRoute from "./routes/productRoute.js";
 import authRoute from "./routes/authRoute.js";
+import orderRoute from "./routes/OrderRoute.js";
 import cors from "cors"
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.json());
 // api routes
 app.use("/api/product", productRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/order", orderRoute);
 
 
 

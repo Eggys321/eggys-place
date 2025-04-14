@@ -152,17 +152,15 @@ export const isLoggedIn = async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader?.startsWith("Bearer ")) {
-      return res.status(401).json({ success: false, message: "Unauthorized" });
+      return res.status(401).json({ success: false, errMsg: "Unauthorized" });
     }
-
     const token = authHeader.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // Fetch the user from DB to get full info
     const user = await USER.findById(decoded.userId).select("firstName role email");
 
     if (!user) {
-      return res.status(404).json({ success: false, message: "User not found" });
+      return res.status(404).json({ success: false, errMsg: "User not found" });
     }
 
     res.status(200).json({
@@ -170,7 +168,7 @@ export const isLoggedIn = async (req, res) => {
       user, 
     });
   } catch (error) {
-    console.error("isLoggedIn error:", error);
-    res.status(401).json({ success: false, message: "Invalid token" });
+    // console.error("isLoggedIn error:", error);
+    res.status(401).json({ success: false, errMsg: "Invalid token" });
   }
 };

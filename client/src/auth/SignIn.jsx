@@ -41,13 +41,13 @@ const SignIn = ({ switchToSignUp }) => {
       const res = await req.json();
       if(!res.success){
         toast.error(res.errMsg)
-        reset()
+        // reset()
       }
       if(res.success){
         toast.success(res.message)
         localStorage.setItem("customerToken",res.user.token)
         login(res.user.token, res.user);
-        reset()
+        // reset()
       }
     } catch (error) {
       if(error.message == "Failed to fetch"){

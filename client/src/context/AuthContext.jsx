@@ -6,10 +6,14 @@ const baseUrl = import.meta.env.VITE_API_URL;
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+
   
     useEffect(() => {
         const checkUserStatus = async () => {
             try {
+                setIsLoading(true);
+
               const token = localStorage.getItem("customerToken");
       
               if (!token) {
@@ -30,9 +34,13 @@ export const AuthProvider = ({ children }) => {
                 setUser({ token, ...data.user });
               }
             } catch (error) {
-              console.error("Error checking user status:", error);
+              // console.error("Error checking user status:", error);
               localStorage.removeItem("customerToken");
               setUser(null);
+            }
+            finally{
+                setIsLoading(false);
+
             }
           };
           checkUserStatus()
@@ -49,7 +57,7 @@ export const AuthProvider = ({ children }) => {
     };
   
     return (
-      <AuthContext.Provider value={{ user, login, logout }}>
+      <AuthContext.Provider value={{ user, login, logout ,isLoading}}>
         {children}
       </AuthContext.Provider>
     );

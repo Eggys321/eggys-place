@@ -19,6 +19,8 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const [isTrue, setIsTrue] = useState(false);
   const { cart } = useContext(CartContext);
+  // console.log(user);
+
   const savedLocation = localStorage.getItem("userLocation");
   // console.log(cart);
   const [isClicked, setIsClicked] = useState(false);
@@ -99,9 +101,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="">
-                {user  ? (
+                {user ? (
                   <div className="text-white flex items-center gap-2">
-                    <img src={signInLogo} alt="sign-logo" /><span className="hidden md:block "> Hi,  {user.firstName}{" "}</span>
+                    <img src={signInLogo} alt="sign-logo" />
+                    <span className="hidden md:block ">
+                      {" "}
+                      Hi, {user.firstName}{" "}
+                    </span>
                     <div>
                       <div className="dropdown dropdown-end">
                         <div tabIndex={0} className=" m-1">
@@ -115,15 +121,21 @@ const Navbar = () => {
                           tabIndex={0}
                           className="dropdown-content menu  rounded-box z-1 w-36 h-36 md:h-30 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
                         >
-                          <li className="ps-3 font-bold text-[16px] md:hidden "> Hi, {user.firstName}</li>
-                          <li>
-                            <Link to="/DashBoard">Dashboard</Link>
+                          <li className="ps-3 font-bold text-[16px] md:hidden ">
+                            Hi, {user.firstName}
                           </li>
+                          
+                            {user.role === "admin" && (
+                              <li>
+
+                                <Link to="/dashboard">Dashboard</Link>
+                              </li>
+                            )}
+                          
                           <li>
-                            
                             <Link to="/orders">Orders</Link>
                           </li>
-                          <li onClick={logout} className="cursor-pointer ">
+                          <li onClick={logout} className="cursor-pointer">
                             Logout
                           </li>
                         </ul>

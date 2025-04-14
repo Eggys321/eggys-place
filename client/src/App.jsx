@@ -10,13 +10,13 @@ import { Toaster, toast } from "sonner";
 import ScrollToTop from "./utils/ScrollToTop";
 import LocationModal from "./components/modals/LocationModal";
 import ResetPwd from "./auth/ResetPwd";
-import ForgotPwd from "./auth/ForgotPwd"
+import ForgotPwd from "./auth/ForgotPwd";
 import ErrorPage from "./pages/ErrorPage";
 import CheckOut from "./pages/CheckOut";
 import DashBoard from "./pages/DashBoard";
 import Orders from "./pages/Orders";
-
-
+import PrivateRoute from "./routes/PrivateRoute.jsx";
+import Test from "./pages/Test.jsx";
 
 // const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -97,17 +97,32 @@ function App() {
                 </>
               }
             >
+              <Route path="/test" element={<Test/>}/>
               <Route path="/" element={<Home />} />
               <Route path="/product/:productId" element={<Product />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/check-out" element={<CheckOut/>}/>
-              <Route path="/dashboard" element={<DashBoard/>}/>
-              <Route path="/orders" element={<Orders/>}/>
+              <Route path="/check-out" element={<CheckOut />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <PrivateRoute>
+                    <DashBoard />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/orders"
+                element={
+                  <PrivateRoute>
+                    <Orders />
+                  </PrivateRoute>
+                }
+              />
             </Route>
-            <Route path="/reset-password" element={<ResetPwd/>}/>
-            <Route path="/forgot-password" element={<ForgotPwd/>}/>
-            <Route path="/reset-password/:resetToken" element={<ResetPwd/>} />
-            <Route path="*" element={<ErrorPage/>} />
+            <Route path="/reset-password" element={<ResetPwd />} />
+            <Route path="/forgot-password" element={<ForgotPwd />} />
+            <Route path="/reset-password/:resetToken" element={<ResetPwd />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
