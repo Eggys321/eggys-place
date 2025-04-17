@@ -10,10 +10,7 @@ export const CartProvider =({children})=>{
       useEffect(()=>{
         localStorage.setItem('cart',JSON.stringify(cart))
     
-      },[cart])
-      // console.log(cart);
-      
-      
+      },[cart])      
       let handleAddToCart = (product) => {
         const productSelected = cart.find(
           (singleCart) => singleCart._id === product._id

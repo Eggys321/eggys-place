@@ -20,7 +20,6 @@ const PrivateRoute = ({ children }) => {
     toast.error("You must be signed in to access this page.");
     return <Navigate to="/" />;
   }
-      // <Toaster />
 
   return  children ;
   

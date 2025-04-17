@@ -4,7 +4,7 @@ import MyButton from "./MyButton";
 import { calculateTotalPrice } from "../utils/CartUtils";
 import {useNavigate,useLocation} from "react-router-dom"
 
-const CartSummary = () => {
+const CartSummary = ({handlePayNow}) => {
   const { cart } = useContext(CartContext);
   const totalPrice = calculateTotalPrice(cart);
 const location = useLocation()
@@ -57,7 +57,9 @@ const location = useLocation()
           <MyButton
           text="Pay Now"
           className="w-full h-[56px] text-[20px] font-[500]"
+          onClick={handlePayNow}
           // onClick={handleCheckOut}
+          // disabled={true}
         />
         </> : <>
           <MyButton

@@ -53,7 +53,6 @@ const SearchField = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         {isLoading && <p className="text-white px-8">Searching...</p>}
-        {/* search suggestions dropdown */}
         <div className="w-50">
           {searchResult.length > 0 && (
             <ul className="absolute w-85 bg-[#100101] text-white shadow-lg rounded-md mt-1 z-10 max-h-[300px] overflow-y-auto">

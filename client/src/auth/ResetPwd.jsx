@@ -118,7 +118,7 @@ const ResetPwd = () => {
           </div>
         </form>
       </main>
-      <Toaster />
+      {/* <Toaster /> */}
 
     </>
   );

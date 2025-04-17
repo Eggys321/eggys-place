@@ -29,3 +29,5 @@ export function resetPasswordEmailTemplate(firstName, resetUrl){
     
     `
 }
+
+

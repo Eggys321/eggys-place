@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
                 setUser({ token, ...data.user });
               }
             } catch (error) {
-              // console.error("Error checking user status:", error);
               localStorage.removeItem("customerToken");
               setUser(null);
             }

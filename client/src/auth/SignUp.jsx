@@ -119,7 +119,7 @@ const SignUp = ({switchToSignIn}) => {
           </span>
         </p>
       </main>
-            <Toaster />
+            {/* <Toaster /> */}
       
     </>
   )

@@ -340,3 +340,19 @@ export const menuItems = [
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
 ]
+
+
+export const sidebarLinks = [
+  {
+    id:1,
+    Icon:"",
+    name:"Order",
+    path:""
+  },
+  {
+    // id:2,
+    // Icon:"",
+    // name:"Accounts",
+    // path:"accounts"
+  }
+]

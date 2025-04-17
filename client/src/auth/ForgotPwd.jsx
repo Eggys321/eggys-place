@@ -72,7 +72,7 @@ const ForgotPwd = () => {
           </div>
         </form>
       </main>
-            <Toaster />
+            {/* <Toaster /> */}
       
     </>
   );

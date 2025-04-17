@@ -1,12 +1,13 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, useState, useEffect } from "react";
 import { Home, Navbar } from "./routes/routes";
 import Footer from "./layouts/Footer";
 import LoadingRing from "./utils/Loader";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
-import { Toaster, toast } from "sonner";
+import { Toaster as SonnerToaster } from "sonner";
+import { Toaster as HootToaster } from "react-hot-toast";
 import ScrollToTop from "./utils/ScrollToTop";
 import LocationModal from "./components/modals/LocationModal";
 import ResetPwd from "./auth/ResetPwd";
@@ -17,6 +18,9 @@ import DashBoard from "./pages/DashBoard";
 import Orders from "./pages/Orders";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
 import Test from "./pages/Test.jsx";
+import DeliveredPage from "./pages/DeliveredPage.jsx";
+import CancelledPage from "./pages/CancelledPage.jsx";
+import RoleBasedRoutes from "./routes/RoleBasedRoutes.jsx";
 
 // const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -97,7 +101,7 @@ function App() {
                 </>
               }
             >
-              <Route path="/test" element={<Test/>}/>
+              <Route path="/test" element={<Test />} />
               <Route path="/" element={<Home />} />
               <Route path="/product/:productId" element={<Product />} />
               <Route path="/cart" element={<Cart />} />
@@ -106,18 +110,33 @@ function App() {
                 path="/dashboard"
                 element={
                   <PrivateRoute>
-                    <DashBoard />
+                    <RoleBasedRoutes requiredRole={["admin"]}>
+                      <DashBoard />
+                    </RoleBasedRoutes>
                   </PrivateRoute>
                 }
               />
-              <Route
-                path="/orders"
+              <Route path="/orders" element={ <PrivateRoute>
+                    <Orders />
+                  </PrivateRoute>}>
+                {/* <Route index element={<Navigate to="delivered" replace />} /> */}
+                <Route index element={<Navigate to="delivered" />} />
+                <Route path="delivered" element={<DeliveredPage />} />
+                <Route path="cancelled" element={<CancelledPage />} />
+              </Route>
+              {/* <Route
+                path="orders"
                 element={
                   <PrivateRoute>
                     <Orders />
                   </PrivateRoute>
                 }
-              />
+              >
+                <Route index element={<OrderPage />} />
+
+                <Route path="delivered" element={<DeliveredPage />} />
+                <Route path="cancelled" element={<CancelledPage />} />
+              </Route> */}
             </Route>
             <Route path="/reset-password" element={<ResetPwd />} />
             <Route path="/forgot-password" element={<ForgotPwd />} />
@@ -126,7 +145,8 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
-      <Toaster />
+      <HootToaster />
+      <SonnerToaster />
       {/* <BrowserRouter>
         <Suspense fallback={<div className="flex justify-center items-center h-screen"> <LoadingRing/> </div>}>
         <Navbar cart={cart} setCart={setCart}/>
