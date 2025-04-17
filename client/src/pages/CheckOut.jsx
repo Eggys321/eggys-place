@@ -10,7 +10,7 @@ import { calculateTotalPrice } from "../utils/CartUtils";
 import CartContext from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
-const PK = import.meta.env.VITE_TEST_PUBLIC_KEY
+const PK = import.meta.env.VITE_TEST_PUBLIC
 const baseUrl = import.meta.env.VITE_API_URL;
 
 
