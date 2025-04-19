@@ -1,4 +1,5 @@
 import ORDER from "../models/OrderModel.js";
+import { sendOrder } from "../emails/emailHandlers.js";
 
 export const createOrder  = async (req,res)=>{
     try {
@@ -16,6 +17,8 @@ export const createOrder  = async (req,res)=>{
 
         const order = await ORDER.create({...req.body,status:"paid"});
         res.status(201).json({success:true,message:"order created",order})
+        sendOrder(order);
+
     } catch (error) {
       res.status(500).json(error.message)  
     }
