@@ -20,7 +20,7 @@ const SimilarProducts = () => {
         {cart.length > 0 && (
           <>
           
-        <h1>Similar Products You Might Like</h1>
+        <h1 className='text-[#FFFFFF] text-[24px] font-[500] py-4'>Similar Products You Might Like</h1>
         <div className='flex justify-between flex-wrap gap-y-5 lg:gap-y-8 mb-6'>
           {threeRandomItems.map((randomItx)=>{
             const {_id,title,image,description,price,rating,duration} = randomItx

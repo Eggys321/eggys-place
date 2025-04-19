@@ -13,6 +13,7 @@ import signInLogo from "../assets/sign-in-logo.png";
 import arrowDown from "../assets/drop-down-img.svg";
 import arrowUp from "../assets/arrow-up-2.png";
 import { useAuth } from "../context/AuthContext";
+import MyModal from "../components/modals/MyModal";
 
 const Navbar = () => {
   const [isLoggedIn, setIsloggedIn] = useState(!false);
@@ -119,7 +120,7 @@ const Navbar = () => {
                         </div>
                         <ul
                           tabIndex={0}
-                          className="dropdown-content menu  rounded-box z-1 w-36 h-36 md:h-30 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
+                          className="dropdown-content menu  rounded-box z-1 w-36 h-36 md:h-32 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
                         >
                           <li className="ps-3 font-bold text-[16px] md:hidden ">
                             Hi, {user.firstName}
@@ -135,9 +136,13 @@ const Navbar = () => {
                           <li>
                             <Link to="/orders">Orders</Link>
                           </li>
-                          <li onClick={logout} className="cursor-pointer">
+                          {/* <li onClick={logout} className="cursor-pointer">
                             Logout
-                          </li>
+                          </li> */}
+                          <div>
+
+                          <MyModal/>
+                          </div>
                         </ul>
                       </div>
                     </div>

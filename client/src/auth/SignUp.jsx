@@ -15,6 +15,8 @@ const baseUrl = import.meta.env.VITE_API_URL;
 const SignUp = ({switchToSignIn}) => {
    const [isReveal, setIsReveal] = useState(false)
    const [isReveal2, setIsReveal2] = useState(false);
+     const [isError,setIsError] = useState(null)
+   
   //  const [isClicked, setIsClicked] = useState(false);
   
     function togglePwd(){
@@ -43,8 +45,10 @@ const SignUp = ({switchToSignIn}) => {
         })
         const res = await req.json();
         if(!res.success){
-          toast.error(res.errMsg)
-          reset()
+          // toast.error(res.errMsg)
+          // reset()
+          setIsError(res.errMsg)
+          setTimeout(() => setIsError(null), 3000);
         }
         if(res.success){
           toast.success(res.message)
@@ -102,11 +106,15 @@ const SignUp = ({switchToSignIn}) => {
           </div>
           <div className="relative w-full">
 
-          <Input type={isReveal2 ? "text" : "password"} placeholder="Password" name="cpassword" {...register("cPassword")}/>
+          <Input type={isReveal2 ? "text" : "password"} placeholder=" Confirm password" name="cpassword" {...register("cPassword")}/>
           <img className=" absolute top-2.5  left-[90%]" src={isReveal2 ? visibilityOff : visibilityOn} alt="toggle-password-img" onClick={togglePwd2} />
           <p className="text-red-600">{errors.cPassword?.message}</p>
           </div>
-
+          {isError && (
+  <div className="text-red-500 bg-red-100 px-4 py-2 rounded mt-2 text-sm">
+    {isError}
+  </div>
+)}
           {/* <Link className="text-[#FBFBFB] text-[10px] font[400] underline">Forgot Password?</Link> */}
           <MyButton disabled={isSubmitting} text={btnText} className={`w-full h-[40px] font-[500] text-[20px] ${isSubmitting ? "bg-dark" : "bg-[#B67B0F]"} `}  />
         </form>
