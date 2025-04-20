@@ -70,7 +70,7 @@ const Orders = () => {
           <Outlet />
         </section>
       </main>
-        {/* <SimilarProducts/> */}
+        <SimilarProducts/>
       {/* <main className="wrapper grid grid-cols-3 gap-4">
         <section className="col-span-1 border">
           {sidebarLinks.map((sidebar) => {
