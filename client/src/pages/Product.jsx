@@ -12,11 +12,7 @@ const Product = () => {
   const { handleAddToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
-  // const { id } = useParams();
-  // const product = menuItems.find((item) => item._id == id);
-  // const similarProducts = menuItems
-  //   .filter((item) => item.category == product.category)
-  //   .map((it) => it);
+  
 
   const { productId } = useParams();
   // console.log(productId);
@@ -28,7 +24,6 @@ const Product = () => {
         `${baseUrl}/api/product/${productId}`
       );
       const res = await req.json();
-      console.log(res);
       setProduct(res.product);
 
       const allProducts = await fetch(
@@ -41,7 +36,7 @@ const Product = () => {
 
       setSimilarProducts(filteredSimilarProducts);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } finally {
       setIsLoading(false);
     }

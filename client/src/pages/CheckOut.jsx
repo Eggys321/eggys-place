@@ -68,7 +68,6 @@ const CheckOut = () => {
   
           if (data.success) {
             alert(` ${data.message} ${transaction.reference}`);
-            console.log(response);
             
             navigate("/orders")
           } else {

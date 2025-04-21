@@ -6,16 +6,10 @@ const LocationModal = ({ onLocationSelect }) => {
 
   useEffect(() => {
     const savedLocation = localStorage.getItem("userLocation");
-    // console.log("Saved Location:", savedLocation); 
 
     if (!savedLocation && modalRef.current) {
-        // document.body.classList.add("modal-open");
 
-        modalRef.current?.showModal();
-        // setTimeout(() => {
-        //     modalRef.current?.showModal();
-        //   }, 1000);    
-        
+        modalRef.current?.showModal();  
         }
   }, []);
 

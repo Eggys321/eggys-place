@@ -26,7 +26,6 @@ const SearchField = () => {
         `${baseUrl}/api/product/products/search?query=${searchTerm}`
       );
       const data = await request.json();
-      console.log(data.products);
 
       setSearchResults(data.products || []);
     } catch (error) {

@@ -17,11 +17,10 @@ const OrderDetails = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(res);
 
         setOrder(res.data.order);
       } catch (err) {
-        console.error("Error fetching order:", err);
+        // console.error("Error fetching order:", err);
       } finally {
         setLoading(false);
       }

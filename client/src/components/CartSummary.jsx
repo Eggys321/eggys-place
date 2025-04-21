@@ -9,7 +9,6 @@ const CartSummary = ({handlePayNow}) => {
   const totalPrice = calculateTotalPrice(cart);
 const location = useLocation()
 
-  // console.log(location.pathname);
   
   const navigate = useNavigate()
   function handleCheckOut (){
@@ -58,8 +57,6 @@ const location = useLocation()
           text="Pay Now"
           className="w-full h-[56px] text-[20px] font-[500]"
           onClick={handlePayNow}
-          // onClick={handleCheckOut}
-          // disabled={true}
         />
         </> : <>
           <MyButton

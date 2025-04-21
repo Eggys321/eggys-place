@@ -26,7 +26,7 @@ const DeliveredPage = () => {
       setOrders(data.orders || []);
       setTotalPages(data.totalPages);
     } catch (error) {
-      console.error("Error fetching orders:", error);
+      // console.error("Error fetching orders:", error);
     } finally {
       setIsLoading(false);
     }

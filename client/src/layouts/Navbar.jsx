@@ -20,13 +20,10 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const [isTrue, setIsTrue] = useState(false);
   const { cart } = useContext(CartContext);
-  // console.log(user);
 
   const savedLocation = localStorage.getItem("userLocation");
-  // console.log(cart);
   const [isClicked, setIsClicked] = useState(false);
 
-  // const [isOpen,setIsOpen] = useState()
   function toggleSearch() {
     isTrue ? setIsTrue(false) : setIsTrue(true);
   }
@@ -34,26 +31,6 @@ const Navbar = () => {
     <>
       <header className="bg-[#100101] w-full sticky z-10 top-0">
         <nav className="wrapper gap-4 lg:gap-8 xl:gap-12 flex justify-between items-center">
-          {/* <div className="flex items-center gap-4 lg:gap-6">
-            <div className="">
-
-            <img src={navLogo} alt="nav-logo" className="w-10 md:w-full h-auto" />
-            </div>
-
-            <div>
-
-            <img
-              src={locationImg}
-              alt="location-logo"
-              className="w-5 md:w-full h-auto"
-            />
-            </div>
-            <h4 className="text-[#F0F0F0] text-[20px] font-[500] hidden md:block ">Location</h4>
-            <div>
-
-              <LocationDropDownFN/>
-            </div>
-          </div> */}
           <div className="flex items-center gap-4 lg:gap-6">
             <Link to="/">
               <img
@@ -89,7 +66,6 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-4 lg:gap-6 xl:gap-8 items-center">
-            {/* <h2 className="font-medium text-lg text-[#FBFBFB] hidden lg:block whitespace-nowrap">All Products</h2> */}
             <ul className="flex gap-4 lg:gap-6 items-center">
               <li className="flex items-center justify-center w-[76px] h-[50px] md:w-[142px] lg:h-[56px] py-[15px]  lg:px-[20px]  bg-[#B67B0F] rounded-[100px] lg:rounded-[32px]">
                 <Link className="flex items-center justify-center" to="/cart">
@@ -136,9 +112,6 @@ const Navbar = () => {
                           <li>
                             <Link to="/orders">Orders</Link>
                           </li>
-                          {/* <li onClick={logout} className="cursor-pointer">
-                            Logout
-                          </li> */}
                           <div>
 
                           <MyModal/>

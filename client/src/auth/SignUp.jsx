@@ -16,9 +16,7 @@ const SignUp = ({switchToSignIn}) => {
    const [isReveal, setIsReveal] = useState(false)
    const [isReveal2, setIsReveal2] = useState(false);
      const [isError,setIsError] = useState(null)
-   
-  //  const [isClicked, setIsClicked] = useState(false);
-  
+     
     function togglePwd(){
       setIsReveal((prev)=> !prev)
     }
@@ -45,8 +43,6 @@ const SignUp = ({switchToSignIn}) => {
         })
         const res = await req.json();
         if(!res.success){
-          // toast.error(res.errMsg)
-          // reset()
           setIsError(res.errMsg)
           setTimeout(() => setIsError(null), 3000);
         }
@@ -115,7 +111,6 @@ const SignUp = ({switchToSignIn}) => {
     {isError}
   </div>
 )}
-          {/* <Link className="text-[#FBFBFB] text-[10px] font[400] underline">Forgot Password?</Link> */}
           <MyButton disabled={isSubmitting} text={btnText} className={`w-full h-[40px] font-[500] text-[20px] ${isSubmitting ? "bg-dark" : "bg-[#B67B0F]"} `}  />
         </form>
         <p className="py-4">
@@ -126,9 +121,7 @@ const SignUp = ({switchToSignIn}) => {
           Sign In
           </span>
         </p>
-      </main>
-            {/* <Toaster /> */}
-      
+      </main>      
     </>
   )
 }
