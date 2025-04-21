@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const DeliveredPage = () => {
   const [orders, setOrders] = useState([]);
@@ -90,9 +91,9 @@ const DeliveredPage = () => {
                 </div>
               </div>
 
-              <button className="text-[#f0a500] text-sm hover:underline">
+              <Link to={`/orders/delivered/${order._id}`}  className="text-[#f0a500] text-sm hover:underline">
                 View Details &gt;&gt;
-              </button>
+              </Link>
             </div>
           );
         })}

@@ -71,31 +71,7 @@ const Orders = () => {
         </section>
       </main>
         <SimilarProducts/>
-      {/* <main className="wrapper grid grid-cols-3 gap-4">
-        <section className="col-span-1 border">
-          {sidebarLinks.map((sidebar) => {
-            const { id, path, Icon, name } = sidebar;
-            return (
-              <div key={id} >
-                <NavLink key={id} to={path} end>
-                  {({ isActive, isPending }) => (
-                    <span className="">
-                      <h6> {name} </h6>
-                    </span>
-                  )}
-                </NavLink>
-               
-              </div>
-            );
-          })}
-          <h1>Orders</h1>
-          <h1>logout</h1>
-        </section>
-
-        <section className="border col-span-2">
-          <Outlet />
-        </section>
-      </main> */}
+     
     </>
   );
 };

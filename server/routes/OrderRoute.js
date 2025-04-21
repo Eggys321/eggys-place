@@ -12,6 +12,6 @@ router.get("/all-orders", auth , restrict("admin"),orders);
 // orders by customer
 router.get("/customer-order",auth,customerOrder);
 // single order route
-router.get("/:id",auth, getSingleOrder )
+router.get("/:orderId",auth, getSingleOrder )
 
 export default router;

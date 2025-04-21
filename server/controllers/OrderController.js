@@ -60,8 +60,8 @@ export const customerOrder = async (req,res)=>{
 
 export const getSingleOrder = async (req, res) => {
     try {
-      const orderId = req.params.id;
-      const userId = req.user.userId;
+        const orderId = req.params.orderId;
+        const userId = req.user.userId;
   
       const order = await ORDER.findOne({ _id: orderId, user: userId });
   
