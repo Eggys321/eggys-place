@@ -45,7 +45,7 @@ const CheckOut = () => {
   
     paystackInstance.newTransaction({
       key: PK,
-      email: recipientInfo.email,
+      email: user.email,
       amount: totalPrice * 100,
       onSuccess: async (transaction) => {
         try {
