@@ -17,6 +17,9 @@ const CheckOut = () => {
   UseTitle("let's checkout");
   const {cart} = useContext(CartContext)
   const {user} = useAuth();
+  // console.log(typeof user);
+  // console.log(user);
+  
   const navigate = useNavigate()
   const [savedInfo, setSavedInfo] = useState(null);
   const token = localStorage.getItem("customerToken")
