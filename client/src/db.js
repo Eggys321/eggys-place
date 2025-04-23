@@ -356,3 +356,22 @@ export const sidebarLinks = [
     // path:"accounts"
   }
 ]
+
+
+// lgaData.js
+export const lgaData = {
+  Lagos: [
+    "Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry", 
+    "Epe", "Eti-Osa", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Kosofe", 
+    "Lagos Island", "Lagos Mainland", "Mushin", "Ojo", "Oshodi-Isolo", "Shomolu", "Surulere"
+  ],
+  Delta: [
+    "Aniocha North", "Aniocha South", "Bomadi", "Burutu", "Ethiope East", "Ethiope West", 
+    "Ika North East", "Ika South", "Isoko North", "Isoko South", "Ndokwa East", "Ndokwa West", 
+    "Okpe", "Oshimili North", "Oshimili South", "Patani", "Sapele", "Udu", "Ughelli North", 
+    "Ughelli South", "Ukwuani", "Uvwie", "Warri North", "Warri South", "Warri South West"
+  ],
+  Abuja: [
+    "Abaji", "Bwari", "Gwagwalada", "Kuje", "Kwali", "Municipal Area Council"
+  ]
+};

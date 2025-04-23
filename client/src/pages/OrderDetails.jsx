@@ -105,7 +105,7 @@ const OrderDetails = () => {
               {deliveryAddress?.address}
             </p>
             <p>
-              <span className="text-gray-400">City: </span>
+              <span className="text-gray-400">LGA: </span>
               {deliveryAddress?.city}
             </p>
             <p>
