@@ -20,6 +20,7 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const [isTrue, setIsTrue] = useState(false);
   const { cart } = useContext(CartContext);
+console.log(user);
 
   const savedLocation = localStorage.getItem("userLocation");
   const [isClicked, setIsClicked] = useState(false);

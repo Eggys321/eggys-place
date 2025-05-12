@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import LoadingRing from "../utils/Loader";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
@@ -29,7 +30,7 @@ const OrderDetails = () => {
     fetchOrder();
   }, [orderId]);
 
-  if (loading) return <div className="text-center text-white">Loading...</div>;
+  if (loading) return <div className="text-center text-white bg-[#1a1a1a] min-h-dvh flex items-center justify-center "> <LoadingRing/> </div>;
 
   if (!order)
     return (
@@ -41,7 +42,7 @@ const OrderDetails = () => {
   const { status, paymentRef, totalPrice, recipientInfo, deliveryAddress } = order;
 
   return (
-    <div className="wrapper min-h-screen  bg-[#1a1a1a] text-white px-4 py-8">
+    <div className="wrapper   bg-[#1a1a1a] text-white px-4 py-8">
       <div className=" md:grid grid-cols-2 gap-20 bg-[#2a2a2a] rounded-lg shadow-md p-6 space-y-6">
        <div>
        <h2 className="text-2xl font-bold border-b border-gray-600 pb-2 mb-4">

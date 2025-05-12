@@ -3,9 +3,9 @@ import React from 'react'
 const DashBoard = () => {
   return (
     <>
-    <main className='wrapper'>
+    <main className=''>
 
-    <h1>DashBoard</h1>
+    <h1>DashBoassssrd</h1>
     </main>
     </>
   )

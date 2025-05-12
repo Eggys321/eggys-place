@@ -22,6 +22,9 @@ import DeliveredPage from "./pages/DeliveredPage.jsx";
 import CancelledPage from "./pages/CancelledPage.jsx";
 import RoleBasedRoutes from "./routes/RoleBasedRoutes.jsx";
 import OrderDetails from "./pages/OrderDetails.jsx";
+import AdminDashBoard from "./pages/AdminDashBoard.jsx";
+import Customer from "./pages/Customer.jsx";
+import AllOrders from "./pages/AllOrders.jsx";
 
 // const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -115,11 +118,15 @@ function App() {
                 element={
                   <PrivateRoute>
                     <RoleBasedRoutes requiredRole={["admin"]}>
-                      <DashBoard />
+                    {<AdminDashBoard/>}
                     </RoleBasedRoutes>
                   </PrivateRoute>
                 }
-              />
+              >
+                <Route index element={<DashBoard/>}/>
+                <Route path="all-orders" element={<AllOrders/>} />
+                 <Route path="customer" element={<Customer/>}/>
+               </Route> 
               <Route path="/orders" element={ <PrivateRoute>
                     <Orders />
                   </PrivateRoute>}>
