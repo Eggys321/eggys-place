@@ -2,7 +2,6 @@ import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import LoadingRing from '../utils/Loader';
-// import { Toaster,toast } from "react-hot-toast";
 import { toast } from 'sonner';
 
 const PrivateRoute = ({ children }) => {

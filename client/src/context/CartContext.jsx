@@ -1,4 +1,4 @@
-import { createContext,useState,useEffect } from "react";
+import { createContext, useState, useEffect, useCallback, useMemo } from "react";
 
 
 const CartContext = createContext();
@@ -9,9 +9,9 @@ export const CartProvider =({children})=>{
      const [cart, setCart] = useState(cartItemsFromLocalStorage);
       useEffect(()=>{
         localStorage.setItem('cart',JSON.stringify(cart))
-    
-      },[cart])      
-      let handleAddToCart = (product) => {
+
+      },[cart])
+      const handleAddToCart = useCallback((product) => {
         const productSelected = cart.find(
           (singleCart) => singleCart._id === product._id
         );
@@ -28,16 +28,17 @@ export const CartProvider =({children})=>{
           );
         } else {
           setCart([...cart, { ...product, quantity: 1 }]);
-        }    
-      };
-     
+        }
+      }, [cart]);
+
+      const value = useMemo(() => ({
+        handleAddToCart,
+        cart,
+        setCart
+      }), [cart, handleAddToCart]);
 
     return(
-        <CartContext.Provider value={{
-            handleAddToCart,
-            cart,
-            setCart
-        }}>
+        <CartContext.Provider value={value}>
             {children}
 
         </CartContext.Provider>

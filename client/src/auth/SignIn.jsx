@@ -8,11 +8,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../utils/ValidationSchema";
 import LoadingRing from "../utils/Loader";
-import { Toaster,toast } from "react-hot-toast";
+import { toast } from "sonner";
 import { useAuth } from "../context/AuthContext";
-
-
-const baseUrl = import.meta.env.VITE_API_URL;
+import { baseUrl } from "../config";
 
 const SignIn = ({ switchToSignUp }) => {
   const [isReveal, setIsReveal] = useState(false);
@@ -48,7 +46,6 @@ const SignIn = ({ switchToSignUp }) => {
       }
       if(res.success){
         toast.success(res.message)
-        localStorage.setItem("customerToken",res.user.token)
         login(res.user.token, res.user);
       }
     } catch (error) {

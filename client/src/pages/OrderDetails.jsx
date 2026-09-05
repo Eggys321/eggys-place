@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import LoadingRing from "../utils/Loader";
+import { toast } from "sonner";
+import { baseUrl } from "../config";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("customerToken");
-  const baseUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -21,7 +22,7 @@ const OrderDetails = () => {
 
         setOrder(res.data.order);
       } catch (err) {
-        // console.error("Error fetching order:", err);
+        toast.error("Could not load your order(s). Please try again.");
       } finally {
         setLoading(false);
       }

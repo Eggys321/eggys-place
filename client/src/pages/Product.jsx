@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { menuItems } from "../db";
 import MyButton from "../components/MyButton";
 import CartContext from "../context/CartContext";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import rateIcon from "../assets/rating-icon.svg";
-const baseUrl = import.meta.env.VITE_API_URL;
+import { baseUrl } from "../config";
 const Product = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { handleAddToCart } = useContext(CartContext);
@@ -69,7 +68,8 @@ const Product = () => {
             <div className="">
               <img
                 src={product?.image}
-                alt=""
+                alt={product?.title}
+                loading="lazy"
                 className="w-[650px] object-cover"
               />
             </div>
@@ -94,7 +94,7 @@ const Product = () => {
           <h2 className="text-white text-4xl pb-6">Others You Might Like</h2>
           <div className="flex overflow-x-auto snap-x scroll-smooth space-x-3 md:space-x-6 pb-4 no-scrollbar">
             {isLoading ? (
-            [...Array(menuItems.length || 6)].map((index) => (
+            [...Array(6)].map((_, index) => (
               <div
                 key={index}
                 className="card bg-[#252422] w-[300px] md:w-[340px] md:min-w-[340px]  flex-none snap-start p-[16px] shadow-sm "
@@ -119,7 +119,8 @@ const Product = () => {
                     <figure>
                       <img
                         src={image}
-                        alt="Shoes"
+                        alt={title}
+                        loading="lazy"
                         className="w-full h-auto object-cover "
                       />
                     </figure>

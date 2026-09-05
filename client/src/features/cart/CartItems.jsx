@@ -30,6 +30,7 @@ const CartItems = () => {
                   <img
                     src={image}
                     alt={title}
+                    loading="lazy"
                     className="w-[98px] h-full  rounded-2xl"
                   />
                 </div>

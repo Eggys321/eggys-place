@@ -7,11 +7,10 @@ import visibilityOff from  "../assets/visibility_off.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPwdLinkSchema } from '../utils/ValidationSchema';
-import { Toaster,toast } from "react-hot-toast";
+import { toast } from "sonner";
 import LoadingRing from "../utils/Loader";
 import { useParams,useNavigate } from 'react-router-dom';
-
-const baseUrl = import.meta.env.VITE_API_URL;
+import { baseUrl } from "../config";
 
 const ResetPwd = () => {
     const [isReveal, setIsReveal] = useState(false);
@@ -55,8 +54,7 @@ const ResetPwd = () => {
             navigate("/")
           }
         } catch (error) {
-          // console.log(error.message);
-          
+          toast.error("Something went wrong. Please try again.");
         }
       };
       const btnTxt = isSubmitting ? <LoadingRing/> : "Reset Password"

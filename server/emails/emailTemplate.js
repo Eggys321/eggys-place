@@ -9,7 +9,7 @@ export function resetPasswordEmailTemplate(firstName, resetUrl){
   </head>
   <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
     <div style="background: linear-gradient(to right, #B67B0F, #F8B769); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-          <img src="https://res.cloudinary.com/eguono/image/upload/v1743681223/eggys-place/Frame_1171276702_nyzwsr.png" alt="Eggys-place Logo" style=""max-width: 50.3px; max-height: 43.92px;" margin-bottom: 20px;border-radius: 10px;">
+          <img src="https://res.cloudinary.com/eguono/image/upload/v1743681223/eggys-place/Frame_1171276702_nyzwsr.png" alt="Eggys-place Logo" style="max-width: 50.3px; max-height: 43.92px; margin-bottom: 20px; border-radius: 10px;">
 
       <h1 style="color: white; margin: 0; font-size: 28px;">Reset password!</h1>
     </div>
@@ -106,7 +106,7 @@ export function orderCreatedEmailTemplate(order) {
         ${deliveryAddress.city}, ${deliveryAddress.state}
       </p>
 
-      <p style="margin-top: 30px;">Please proceed to process this order. If you have any questions, contact the customer directly or reach out to the Eggys-place team.</p>
+      <p style="margin-top: 30px;">Thank you for your order! We're getting it ready now. If you have any questions, feel free to reach out to the Eggys-place team.</p>
       <p>Best regards,<br/>The Eggys-place Team</p>
     </div>
   </body>

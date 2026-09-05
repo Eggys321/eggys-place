@@ -7,9 +7,14 @@ const orderSchema = new Schema(
       type: mongoose.Types.ObjectId,
       ref: "user",
       required: true,
+      index: true,
     },
     orderItems: [
       {
+        product: {
+          type: mongoose.Types.ObjectId,
+          ref: "product",
+        },
         title: {
           type: String,
           required: true,
@@ -27,7 +32,7 @@ const orderSchema = new Schema(
           required: true,
         },
         price: {
-          type: String,
+          type: Number,
           required: true,
         },
         duration: {
@@ -37,6 +42,12 @@ const orderSchema = new Schema(
         rating: {
           type: String,
           required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+          min: 1,
+          default: 1,
         },
       },
     ],
@@ -56,17 +67,12 @@ const orderSchema = new Schema(
     },
     status: {
       type: String,
-      default: "pending",
-      enum: ["pending", "delivered", "cancelled", "paid"],
+      default: "paid",
+      enum: ["pending", "paid", "delivered", "cancelled"],
+      index: true,
     },
-    // paymentMethod: {
-    //   type: String,
-    //   default: "paystack",
-    // },
-    // isPaid: { type: Boolean, default: false },
-    paymentRef: { type: String, required: true},
-    totalPrice: { type: Number, required: true},
-  
+    paymentRef: { type: String, required: true, unique: true },
+    totalPrice: { type: Number, required: true },
   },
   { timestamps: true }
 );

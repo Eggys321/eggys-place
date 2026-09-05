@@ -342,22 +342,6 @@ export const menuItems = [
 ]
 
 
-export const sidebarLinks = [
-  {
-    id:1,
-    Icon:"",
-    name:"Order",
-    path:""
-  },
-  {
-    // id:2,
-    // Icon:"",
-    // name:"Accounts",
-    // path:"accounts"
-  }
-]
-
-
 // lgaData.js
 export const lgaData = {
   Lagos: [

@@ -1,53 +1,44 @@
-# MERN stack E-Burger shop
+# Eggy's Place
 
-### Back-End Development Languages
+A full-stack MERN food-ordering app: browse a menu, add items to a cart, check out with Paystack, and track your orders. Admins get a dashboard to manage orders and view customers.
 
-- Nodejs(Express.js)
+### Stack
 
-### Front-End Development Deliverables :
+- **Backend:** Node.js / Express, MongoDB (Mongoose), JWT auth, Nodemailer
+- **Frontend:** React 19, Vite, React Router, Tailwind CSS + DaisyUI
+- **Payments:** Paystack (client-side charge, server-side verification)
+- **Address autocomplete:** LocationIQ
 
-- Web Design
+### Project layout
 
-- Website Development
+This repo holds two independent apps — see `client/` and `server/` for their own setup/run instructions, and `CLAUDE.md` for a fuller architecture overview.
 
-- Web Application
+```
+client/   React + Vite frontend
+server/   Express + MongoDB API
+```
 
-### Front-End Development Languages
+### Features
 
-- Javascript(ReactJs)
+- Browse menu by category, search products
+- Cart with quantity management, persisted locally
+- Checkout with recipient info, delivery address (LGA/state + autocomplete), and Paystack payment
+- Server-verified payments — order totals are recomputed from the database and the Paystack transaction is verified before an order is marked paid
+- Customer order history (ongoing/delivered and cancelled)
+- Admin dashboard: order overview stats, order management (status updates), customer list
 
-### Front-End Development Skills
+### Running locally
 
-- Git And GitHub
+Each app needs its own `.env` file (not committed) — see `CLAUDE.md` for the required variables.
 
-- React Bootstrap
+```bash
+# backend
+cd server
+npm install
+npm run dev
 
-- Figma design
-
-## Project description :
-
-This is a simple responsive mern stack Hr app which was used to teach my trainees how to build MERN stack app.
-
-The project has an admin dashboard(for employees with admin role) and employee dashboard(for registered employees only).
-
-Only the admin can register employees,approve leaves,create tasks,create teams,see all tasks,see all employees.
-
-Employees only sign in,reset password,update profile,apply for leave.
-
-#### Tools Used
-
-- Npm packages(Toastify)
-
-- React-hook-form
-
-- Bycrypt.js
-
-## Hr App Website Preview :
-
-Desktop design:
-<img
-  src="https://res.cloudinary.com/eguono/image/upload/v1741087060/eggys-place/hero-img-png_sdu6hz.png"
-  alt="Alt text"
-  title="desktop-view"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
-
+# frontend (separate terminal)
+cd client
+npm install
+npm run dev
+```

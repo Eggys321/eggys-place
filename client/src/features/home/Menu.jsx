@@ -7,8 +7,7 @@ import rateIcon from "../../assets/rating-icon.svg";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import CartContext from "../../context/CartContext";
-
-const baseUrl = import.meta.env.VITE_API_URL;
+import { baseUrl } from "../../config";
 
 const Menu = () => {
   const [selectedCat, setSelectedCat] = useState("Burger");
@@ -22,14 +21,15 @@ const Menu = () => {
       const res = await req.json();
       setMenuItems(res.products);
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      toast.error("Could not load the menu. Please try again.");
     } finally {
       setIsLoading(false);
     }
   }
   useEffect(() => {
     getMenu();
-  }, [selectedCat]);
+  }, []);
   return (
     <>
       <main className="bg-[#2F2F2F] wrapper">
@@ -54,7 +54,6 @@ const Menu = () => {
         </section>
         <section className="md:hidden mt-5">
           <FieldSet selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
-          {/* <SearchField /> */}
         </section>
         {/* section-2 */}
         <section className="md:grid md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-10  my-10 ">
@@ -95,7 +94,8 @@ const Menu = () => {
                         <figure>
                           <img
                             src={image}
-                            alt="Shoes"
+                            alt={title}
+                            loading="lazy"
                             className="w-full h-auto object-cover "
                           />
                         </figure>

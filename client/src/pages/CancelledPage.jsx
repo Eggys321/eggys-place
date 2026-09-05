@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
+import OrderList from "../features/orders/OrderList";
 
-const CancelledPage = () => {
-  return (
-    <>
-    <h1>CancelledPage</h1>
-    </>
-  )
-}
+const CancelledPage = () => (
+  <OrderList statusQuery="cancelled" emptyMessage="No cancelled orders" />
+);
 
-export default CancelledPage
+export default CancelledPage;

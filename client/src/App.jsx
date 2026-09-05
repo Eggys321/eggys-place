@@ -7,7 +7,6 @@ import LoadingRing from "./utils/Loader";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import { Toaster as SonnerToaster } from "sonner";
-import { Toaster as HootToaster } from "react-hot-toast";
 import ScrollToTop from "./utils/ScrollToTop";
 import LocationModal from "./components/modals/LocationModal";
 import ResetPwd from "./auth/ResetPwd";
@@ -17,7 +16,6 @@ import CheckOut from "./pages/CheckOut";
 import DashBoard from "./pages/DashBoard";
 import Orders from "./pages/Orders";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
-import Test from "./pages/Test.jsx";
 import DeliveredPage from "./pages/DeliveredPage.jsx";
 import CancelledPage from "./pages/CancelledPage.jsx";
 import RoleBasedRoutes from "./routes/RoleBasedRoutes.jsx";
@@ -25,8 +23,8 @@ import OrderDetails from "./pages/OrderDetails.jsx";
 import AdminDashBoard from "./pages/AdminDashBoard.jsx";
 import Customer from "./pages/Customer.jsx";
 import AllOrders from "./pages/AllOrders.jsx";
-
-// const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
+import AdminOrderDetails from "./pages/AdminOrderDetails.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 function App() {
   const [location, setLocation] = useState("");
@@ -37,52 +35,6 @@ function App() {
       setLocation(savedLocation);
     }
   }, []);
-  // const [cart, setCart] = useState(cartItemsFromLocalStorage);
-  // useEffect(()=>{
-  //   localStorage.setItem('cart',JSON.stringify(cart))
-
-  // },[cart])
-  // const handleAddToCart = (item)=>{
-  //     const isPresent = cart.some((product)=> product._id === item._id)
-  //     if(isPresent){
-  //       const updatedCart = cart.map((product)=>{
-  //         product._id === item._id ? {...product, quantity:product.quantity + 1}:product
-  //       })
-  //       setCart(updatedCart);
-  //     }else{
-  //       const newItem = {...item, quantity:1}
-  //       setCart([...cart,newItem]);
-  //       console.log([...cart,newItem]);
-
-  //     }
-
-  //   }
-  // const [cart, setCart] = useState(cartItemsFromLocalStorage);
-  // useEffect(()=>{
-  //   localStorage.setItem('cart',JSON.stringify(cart))
-
-  // },[cart])
-  // console.log(cart);
-
-  // let handleAddToCart = (product) => {
-  //   const productSelected = cart.find(
-  //     (singleCart) => singleCart._id === product._id
-  //   );
-  //   if (productSelected) {
-  //     setCart(
-  //       cart.map((oneItem) =>
-  //         oneItem._id === product._id
-  //           ? {
-  //               ...productSelected,
-  //               quantity: productSelected.quantity + 1,
-  //             }
-  //           : oneItem
-  //       )
-  //     );
-  //   } else {
-  //     setCart([...cart, { ...product, quantity: 1 }]);
-  //   }
-  // };
 
   return (
     <>
@@ -97,6 +49,7 @@ function App() {
         >
           <ScrollToTop />
           <LocationModal onLocationSelect={setLocation} />
+          <ErrorBoundary>
           <Routes>
             <Route
               element={
@@ -105,7 +58,6 @@ function App() {
                 </>
               }
             >
-              <Route path="/test" element={<Test />} />
               <Route path="/" element={<Home />} />
               <Route path="/product/:productId" element={<Product />} />
               <Route path="/cart" element={<Cart />} />
@@ -125,52 +77,26 @@ function App() {
               >
                 <Route index element={<DashBoard/>}/>
                 <Route path="all-orders" element={<AllOrders/>} />
+                <Route path="all-orders/:orderId" element={<AdminOrderDetails/>} />
                  <Route path="customer" element={<Customer/>}/>
-               </Route> 
+               </Route>
               <Route path="/orders" element={ <PrivateRoute>
                     <Orders />
                   </PrivateRoute>}>
-                {/* <Route index element={<Navigate to="delivered" replace />} /> */}
                 <Route index element={<Navigate to="delivered" />} />
                 <Route path="delivered" element={<DeliveredPage />} />
                 <Route path="cancelled" element={<CancelledPage />} />
               </Route>
-              {/* <Route
-                path="orders"
-                element={
-                  <PrivateRoute>
-                    <Orders />
-                  </PrivateRoute>
-                }
-              >
-                <Route index element={<OrderPage />} />
-
-                <Route path="delivered" element={<DeliveredPage />} />
-                <Route path="cancelled" element={<CancelledPage />} />
-              </Route> */}
             </Route>
             <Route path="/reset-password" element={<ResetPwd />} />
             <Route path="/forgot-password" element={<ForgotPwd />} />
             <Route path="/reset-password/:resetToken" element={<ResetPwd />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
+          </ErrorBoundary>
         </Suspense>
       </BrowserRouter>
-      <HootToaster />
       <SonnerToaster />
-      {/* <BrowserRouter>
-        <Suspense fallback={<div className="flex justify-center items-center h-screen"> <LoadingRing/> </div>}>
-        <Navbar cart={cart} setCart={setCart}/>
-        <Navbar cart={cart} setCart={setCart}/>
-          <Routes>
-            <Route path="/" element={<Home  handleAddToCart = {handleAddToCart} />} />
-            <Route path="product/:id" element={<Product/>}/>
-            <Route path="cart" element={<Cart cart={cart} setCart={setCart}/>}/>
-          </Routes>
-          <Footer/>
-        </Suspense>
-      </BrowserRouter>
-      <Toaster /> */}
     </>
   );
 }

@@ -7,10 +7,9 @@ import visibilityOff from  "../assets/visibility_off.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from "../utils/ValidationSchema";
-import { Toaster,toast } from "react-hot-toast";
+import { toast } from "sonner";
 import LoadingRing from "../utils/Loader"
-
-const baseUrl = import.meta.env.VITE_API_URL;
+import { baseUrl } from "../config";
 
 const SignUp = ({switchToSignIn}) => {
    const [isReveal, setIsReveal] = useState(false)

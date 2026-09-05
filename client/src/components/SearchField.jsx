@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { baseUrl } from "../config";
 
-const baseUrl = import.meta.env.VITE_API_URL;
 const SearchField = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResults] = useState([]);

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { sidebarLinks } from "../db";
 import MyModal from "../components/modals/MyModal";
 import orderImg from "../assets/order-img.png";
 import logOutImg from "../assets/logout-img.png";
@@ -26,14 +25,17 @@ const Orders = () => {
               </div>
               Orders
             </NavLink>
-            <div className="flex items-center px-4 gap-2 ">
+            <div
+              className="flex items-center px-4 gap-2 cursor-pointer"
+              onClick={() => document.getElementById("my_modal_logout").showModal()}
+            >
               <div>
 
               <img src={logOutImg} alt="log-out-img" className="" />
               </div>
               <h4 className="text-[#FF0000] font-[400] text-[16px] cursor-pointer">Log Out</h4>
-              {/* <MyModal/> */}
             </div>
+            <MyModal/>
           </div>
         </aside>
 

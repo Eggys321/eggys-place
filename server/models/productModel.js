@@ -19,7 +19,7 @@ const productSchema = new Schema({
         required:[true, "category is required"]    
     },
     price:{
-        type:String,
+        type:Number,
         required:[true, "price is required"]
     },
     duration:{

@@ -9,9 +9,10 @@ import CartContext from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import Recipient from "../features/checkout/Recipient";
 import Delivery from "../features/checkout/Delivery";
+import { toast } from "sonner";
+import { baseUrl } from "../config";
 
 const PK = import.meta.env.VITE_TEST_PUBLIC
-const baseUrl = import.meta.env.VITE_API_URL;
 
 const CheckOut = () => {
   UseTitle("let's checkout");
@@ -40,9 +41,9 @@ const CheckOut = () => {
     const recipientInfo = JSON.parse(sessionStorage.getItem("recipientInfo"));
     const deliveryAddress = JSON.parse(sessionStorage.getItem("deliveryAddress"));
   
-    if (!recipientInfo) return alert("Please fill in the recipient information.");
-    if (!deliveryAddress) return alert("Please add a delivery address.");
-    if (!user) return alert("You need to be signed in to continue.");
+    if (!recipientInfo) return toast.error("Please fill in the recipient information.");
+    if (!deliveryAddress) return toast.error("Please add a delivery address.");
+    if (!user) return toast.error("You need to be signed in to continue.");
   
     const paystackInstance = new PaystackPop();
   
@@ -71,17 +72,17 @@ const CheckOut = () => {
   
           if (data.success) {
             alert(` ${data.message} ${transaction.reference}`);
-            
+
             navigate("/orders")
           } else {
-            alert(data.errMsg || "Failed to create order.");
+            toast.error(data.errMsg || "Failed to create order.");
           }
-        } catch (err) {          
-          alert("Something went wrong while submitting the order.", err.message);
+        } catch (err) {
+          toast.error(`Something went wrong while submitting the order: ${err.message}`);
         }
       },
       onCancel() {
-        alert("Transaction was cancelled.");
+        toast.error("Transaction was cancelled.");
       },
     });
   };
@@ -124,9 +125,9 @@ const handleSubmitAddress = (e) => {
   setSavedAddress(deliveryAddress);
   
   setDeliveryAddress({
-      fullName: "",
-      phoneNumber: "",
-      email: "",
+      state: "",
+      address: "",
+      city: "",
     });
   };
   const stored2 = sessionStorage.getItem("deliveryAddress");

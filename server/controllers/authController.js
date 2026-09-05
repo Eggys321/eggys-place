@@ -19,7 +19,7 @@ export const signUp = async (req, res) => {
     res.status(400).json({ success: false, errMsg: "password do not match" });
     return;
   }
-  
+
   if (password.length < 8) {
     res
     .status(400)
@@ -33,13 +33,14 @@ export const signUp = async (req, res) => {
       res.status(400).json({ success: false, errMsg: "Email already exists" });
       return;
     }
-    
-    const user = await USER.create({ ...req.body });
+
+    // never trust a role sent by the client - every sign-up is a plain customer
+    const user = await USER.create({ email, password, firstName, lastName, role: "customer" });
     res
     .status(201)
-    .json({ success: true, message: "registration successful", user });
+    .json({ success: true, message: "registration successful", user: { _id: user._id, email: user.email, firstName: user.firstName, lastName: user.lastName, role: user.role } });
   } catch (error) {
-    res.status(500).json(error.message);
+    res.status(500).json({ success: false, errMsg: "Something went wrong during registration" });
   }
 };
 
@@ -54,9 +55,13 @@ export const signIn = async (req, res) => {
       return;
     }
     // finding a registered email address
+    // (same error message/status for "no such user" and "wrong password" so a client
+    // can't use this endpoint to enumerate which emails are registered)
     const user = await USER.findOne({ email });
     if (!user) {
-      res.status(404).json({ success: false, errMsg: "user not found" });
+      res
+        .status(401)
+        .json({ success: false, errMsg: "Email or password is incorrect" });
       return;
     }
 
@@ -64,12 +69,12 @@ export const signIn = async (req, res) => {
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       res
-        .status(404)
+        .status(401)
         .json({ success: false, errMsg: "Email or password is incorrect" });
       return;
     }
     // generating token
-    const token = await user.generateToken();
+    const token = user.generateToken();
     if (token) {
       res.status(200).json({
         success: true,
@@ -105,7 +110,6 @@ export const forgotPassword = async (req, res) => {
 
     const resetToken = user.getResetPasswordToken();
     await user.save();
-    res.status(201).json({ success: true, message: "mail sent" });
     const resetUrl = process.env.CLIENT_URL_RESET + resetToken;
     try {
       await sendForgotPasswordMail({
@@ -113,14 +117,15 @@ export const forgotPassword = async (req, res) => {
         firstName: user.firstName,
         resetUrl,
       });
+      res.status(200).json({ success: true, message: "mail sent" });
     } catch (error) {
       user.resetPasswordToken = undefined;
       user.resetPasswordExpire = undefined;
       await user.save();
-      return res.status(500).json({errMsg:"Email could not be sent", error})
+      res.status(500).json({ success: false, errMsg: "Email could not be sent" });
     }
   } catch (error) {
-    return res.status(500).json(error.message);
+    res.status(500).json({ success: false, errMsg: "Something went wrong" });
   }
 };
 

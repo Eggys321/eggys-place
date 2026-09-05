@@ -1,40 +1,55 @@
-import React, { useContext } from 'react';
-import { menuItems } from '../db';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../context/CartContext';
 import rateIcon from "../assets/rating-icon.svg";
 import MyButton from './MyButton';
 import { toast } from "sonner";
+import { baseUrl } from "../config";
 
 
 const SimilarProducts = () => {
   const {handleAddToCart,cart} = useContext(CartContext)
+  const [randomItems, setRandomItems] = useState([]);
 
-  const threeRandomItems = menuItems
-  .filter(() => Math.random() < 0.5)
-  .slice(0, 3); 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const req = await fetch(`${baseUrl}/api/product/all-products`);
+        const res = await req.json();
+        const products = res.products || [];
+        const shuffled = [...products].sort(() => Math.random() - 0.5);
+        setRandomItems(shuffled.slice(0, 3));
+      } catch (error) {
+        console.error(error);
+        toast.error("Could not load similar products.");
+      }
+    };
+    fetchProducts();
+  }, []);
+
     return (
     <>
     <main className='wrapper bg-[#2F2F2F] text-white'>
       <div>
         {cart.length > 0 && (
           <>
-          
+
         <h1 className='text-[#FFFFFF] text-[24px] font-[500] py-4'>Similar Products You Might Like</h1>
         <div className='flex justify-between flex-wrap gap-y-5 lg:gap-y-8 mb-6'>
-          {threeRandomItems.map((randomItx)=>{
+          {randomItems.map((randomItx)=>{
             const {_id,title,image,description,price,rating,duration} = randomItx
             return(
               <div
               key={_id}
               className="card bg-[#252422] w-100 md:w-90 lg:w-118 xl:w-110 p-[16px] my-1 md:my-0 shadow-sm"
             >
-              <Link >
-              
+              <Link to={`/product/${_id}`}>
+
               <figure>
                 <img
                   src={image}
-                  alt="Shoes"
+                  alt={title}
+                  loading="lazy"
                   className="w-full h-auto object-cover "
                 />
               </figure>
