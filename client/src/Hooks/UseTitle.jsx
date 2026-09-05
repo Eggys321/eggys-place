@@ -1,10 +1,22 @@
-import React, { useEffect } from 'react'
+import { useEffect } from "react";
 
-const UseTitle = (title) => {
-    useEffect(()=>{
-        document.title = title
-    },[title])
- 
-}
+const SITE_NAME = "Eggy's Place";
 
-export default UseTitle
+const UseTitle = (title, description) => {
+  useEffect(() => {
+    document.title = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  }, [title]);
+
+  useEffect(() => {
+    if (!description) return;
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", description);
+  }, [description]);
+};
+
+export default UseTitle;

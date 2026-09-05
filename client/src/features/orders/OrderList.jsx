@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useAuth } from "../../context/AuthContext";
@@ -11,10 +11,6 @@ const statusBadgeClass = {
   cancelled: "bg-red-600",
 };
 
-/**
- * Shared list for a customer's own orders, filtered to a set of statuses.
- * Used by both DeliveredPage ("paid,delivered") and CancelledPage ("cancelled").
- */
 const OrderList = ({ statusQuery, emptyMessage }) => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
@@ -33,7 +29,7 @@ const OrderList = ({ statusQuery, emptyMessage }) => {
         const data = await res.json();
         setOrders(data.orders || []);
         setTotalPages(data.totalPages || 1);
-      } catch (error) {
+      } catch {
         toast.error("Could not load your orders. Please try again.");
       } finally {
         setIsLoading(false);
@@ -76,8 +72,6 @@ const OrderList = ({ statusQuery, emptyMessage }) => {
         ) : (
           orders.map((order) => {
             const firstItem = order.orderItems?.[0];
-            // Older API responses may not include `status` at all - fall back
-            // rather than crash the whole page on `undefined[0]`.
             const status = order.status || "paid";
             return (
               <div

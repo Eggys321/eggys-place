@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { baseUrl } from "../config";
@@ -28,7 +28,7 @@ const SearchField = () => {
       const data = await request.json();
 
       setSearchResults(data.products || []);
-    } catch (error) {
+    } catch {
       toast.error("no result found");
     } finally {
       setIsLoading(false);

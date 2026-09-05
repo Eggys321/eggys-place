@@ -18,27 +18,34 @@ export const LocationDropDownFN = ({ onSelect } = {}) => {
 
   return (
     <>
-      <div className="dropdown dropdown-center " onClick={toggleArrow}>
-        <div tabIndex={0} className=" m-1"  >
+      <div className="dropdown dropdown-center ">
+        <button
+          type="button"
+          tabIndex={0}
+          aria-haspopup="menu"
+          aria-expanded={isClicked}
+          aria-label="Toggle location menu"
+          className=" m-1"
+          onClick={toggleArrow}
+        >
           <img
-            src={isClicked  ? arrowUp :   arrowDown}
-            alt="drop-down-img"
+            src={isClicked ? arrowUp : arrowDown}
+            alt=""
             className="cursor-pointer min-w-3"
-
           />
-        </div>
+        </button>
         <ul
           tabIndex={0}
-          className="dropdown-content menu  rounded-box z-1 w-25 h-30 text-[#FBFBFB] p-2 shadow-sm mt-5 bg-[#252422]"
+          className="dropdown-content menu rounded-box z-1 w-25 h-30 text-[#FBFBFB] p-2 shadow-sm mt-5 bg-[#252422]"
         >
           <li>
-            <a onClick={() => handleSelect("Lagos")}>Lagos</a>
+            <button type="button" onClick={() => handleSelect("Lagos")}>Lagos</button>
           </li>
           <li>
-            <a onClick={() => handleSelect("Delta")}>Delta</a>
+            <button type="button" onClick={() => handleSelect("Delta")}>Delta</button>
           </li>
           <li>
-            <a onClick={() => handleSelect("Abuja")}>Abuja</a>
+            <button type="button" onClick={() => handleSelect("Abuja")}>Abuja</button>
           </li>
         </ul>
       </div>

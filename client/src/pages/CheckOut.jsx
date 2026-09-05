@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UseTitle from "../Hooks/UseTitle";
 import CartSummary from "../components/CartSummary";
 import paystackLogo from "../assets/paystack-22011114164191027495287.png";
@@ -12,18 +12,16 @@ import Delivery from "../features/checkout/Delivery";
 import { toast } from "sonner";
 import { baseUrl } from "../config";
 
-const PK = import.meta.env.VITE_TEST_PUBLIC
+const PK = import.meta.env.VITE_TEST_PUBLIC;
 
 const CheckOut = () => {
-  UseTitle("let's checkout");
-  const {cart} = useContext(CartContext)
-  const {user} = useAuth();
-  // console.log(typeof user);
-  // console.log(user);
-  
-  const navigate = useNavigate()
+  UseTitle("Checkout", "Enter your delivery details and complete payment securely with Paystack.");
+  const { cart } = useContext(CartContext);
+  const { user } = useAuth();
+
+  const navigate = useNavigate();
   const [savedInfo, setSavedInfo] = useState(null);
-  const token = localStorage.getItem("customerToken")
+  const token = localStorage.getItem("customerToken");
   const [recipientInfo, setRecipientInfo] = useState({
     fullName: "",
     phoneNumber: "",
@@ -40,13 +38,13 @@ const CheckOut = () => {
   const handlePayNow = async () => {
     const recipientInfo = JSON.parse(sessionStorage.getItem("recipientInfo"));
     const deliveryAddress = JSON.parse(sessionStorage.getItem("deliveryAddress"));
-  
+
     if (!recipientInfo) return toast.error("Please fill in the recipient information.");
     if (!deliveryAddress) return toast.error("Please add a delivery address.");
     if (!user) return toast.error("You need to be signed in to continue.");
-  
+
     const paystackInstance = new PaystackPop();
-  
+
     paystackInstance.newTransaction({
       key: PK,
       email: recipientInfo.email,
@@ -57,7 +55,7 @@ const CheckOut = () => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`, 
+              Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
               orderItems: cart,
@@ -67,13 +65,13 @@ const CheckOut = () => {
               paymentRef: transaction.reference,
             }),
           });
-  
+
           const data = await response.json();
-  
+
           if (data.success) {
             alert(` ${data.message} ${transaction.reference}`);
 
-            navigate("/orders")
+            navigate("/orders");
           } else {
             toast.error(data.errMsg || "Failed to create order.");
           }
@@ -105,44 +103,42 @@ const CheckOut = () => {
   };
 
   const stored = sessionStorage.getItem("recipientInfo");
-const handleFormActivity = function(){
-  document.getElementById("my_modal_1").showModal();
-  if (stored) {
-    setRecipientInfo(JSON.parse(stored));
-  }
-}
-// delivery info
+  const handleFormActivity = function () {
+    document.getElementById("my_modal_1").showModal();
+    if (stored) {
+      setRecipientInfo(JSON.parse(stored));
+    }
+  };
 
-const handleAddress = (e) => {
-  const { name, value } = e.target;
-  setDeliveryAddress((prev) => ({ ...prev, [name]: value }));
-};
-const handleSubmitAddress = (e) => {
-  e.preventDefault();
-  
-  sessionStorage.setItem("deliveryAddress", JSON.stringify(deliveryAddress));
-  
-  setSavedAddress(deliveryAddress);
-  
-  setDeliveryAddress({
+  const handleAddress = (e) => {
+    const { name, value } = e.target;
+    setDeliveryAddress((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleSubmitAddress = (e) => {
+    e.preventDefault();
+
+    sessionStorage.setItem("deliveryAddress", JSON.stringify(deliveryAddress));
+
+    setSavedAddress(deliveryAddress);
+
+    setDeliveryAddress({
       state: "",
       address: "",
       city: "",
     });
   };
   const stored2 = sessionStorage.getItem("deliveryAddress");
-  const handleFormActivity2 = function(){
-  document.getElementById("my_modal_02").showModal() ; 
-  if (stored2) {
-    setDeliveryAddress(JSON.parse(stored2));
-  }
-  }
+  const handleFormActivity2 = function () {
+    document.getElementById("my_modal_02").showModal();
+    if (stored2) {
+      setDeliveryAddress(JSON.parse(stored2));
+    }
+  };
   useEffect(() => {
     const storedData = sessionStorage.getItem("recipientInfo");
     if (storedData) {
       setSavedInfo(JSON.parse(storedData));
     }
-    // delivery add
     const storedDeliveryData = sessionStorage.getItem("deliveryAddress");
     if (storedDeliveryData) {
       setSavedAddress(JSON.parse(storedDeliveryData));
@@ -150,18 +146,14 @@ const handleSubmitAddress = (e) => {
   }, []);
   return (
     <>
-      <main className="wrapper md:grid grid-cols-3 py-1 bg-[#2F2F2F] gap-6 ">
-        {/* section-1 */}
-        <section className="col-span-2 bg-[#100101] mt-3 p-4 flex flex-col justify-between gap-y-[14px] rounded-lg ">
-          {/*div-1  */}
-          <Recipient handleFormActivity={handleFormActivity} handleSubmit={handleSubmit} handleChange={handleChange} recipientInfo={recipientInfo} setRecipientInfo={setRecipientInfo} savedInfo={savedInfo} />
-          {/*div-2  */}
-          <Delivery  handleFormActivity2={handleFormActivity2} savedAddress={savedAddress} deliveryAddress={deliveryAddress} handleAddress={handleAddress} handleSubmitAddress={handleSubmitAddress}  setSavedAddress={setSavedAddress}/>
-          {/*div-3  */}
-          <div className="bg-[#252422] py-10 px-3 rounded-lg  ">
-            <h1 className="text-[#FFFFFF] border-b-1 border-[#FBFBFB] pb-3">
+      <main className="wrapper md:grid grid-cols-3 py-1 gap-6">
+        <section className="col-span-2 bg-[#100101] mt-3 p-4 flex flex-col justify-between gap-y-[14px] rounded-lg">
+          <Recipient handleFormActivity={handleFormActivity} handleSubmit={handleSubmit} handleChange={handleChange} recipientInfo={recipientInfo} savedInfo={savedInfo} />
+          <Delivery handleFormActivity2={handleFormActivity2} savedAddress={savedAddress} deliveryAddress={deliveryAddress} handleAddress={handleAddress} handleSubmitAddress={handleSubmitAddress} setSavedAddress={setSavedAddress} />
+          <div className="bg-[#252422] py-10 px-3 rounded-lg">
+            <h2 className="text-[#FFFFFF] border-b-1 border-[#FBFBFB] pb-3">
               Payment Method
-            </h1>
+            </h2>
             <div className="mt-3 bg-white w-22">
               <img
                 src={paystackLogo}
@@ -171,9 +163,8 @@ const handleSubmitAddress = (e) => {
             </div>
           </div>
         </section>
-        {/* section-2 */}
-        <section className=" text-white">
-          <CartSummary handlePayNow={handlePayNow}/>
+        <section className="text-white">
+          <CartSummary handlePayNow={handlePayNow} />
         </section>
       </main>
     </>

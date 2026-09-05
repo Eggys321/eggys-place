@@ -1,8 +1,7 @@
-import React from 'react'
-
-const MyButton = ({text ,className = "",onClick,disabled }) => {
+const MyButton = ({ text, className = "", onClick, disabled, type = "button" }) => {
   return (
     <button
+      type={type}
       disabled={disabled}
       className={`${
         disabled
@@ -13,7 +12,7 @@ const MyButton = ({text ,className = "",onClick,disabled }) => {
     >
       {text}
     </button>
-  )
-}
+  );
+};
 
-export default MyButton
+export default MyButton;

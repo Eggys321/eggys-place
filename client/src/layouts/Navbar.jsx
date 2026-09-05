@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import navLogo from "../assets/nav-logo.svg";
 import locationImg from "../assets/location-img.svg";
 import { Link, Outlet } from "react-router-dom";
@@ -13,18 +13,18 @@ import signInLogo from "../assets/sign-in-logo.png";
 import arrowDown from "../assets/drop-down-img.svg";
 import arrowUp from "../assets/arrow-up-2.png";
 import { useAuth } from "../context/AuthContext";
-import MyModal from "../components/modals/MyModal";
+import MyModal, { LOGOUT_MODAL_ID } from "../components/modals/MyModal";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const [isTrue, setIsTrue] = useState(false);
   const { cart } = useContext(CartContext);
 
   const savedLocation = localStorage.getItem("userLocation");
-  const [isClicked, setIsClicked] = useState(false);
+  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
   function toggleSearch() {
-    isTrue ? setIsTrue(false) : setIsTrue(true);
+    setIsTrue((prev) => !prev);
   }
   return (
     <>
@@ -38,17 +38,22 @@ const Navbar = () => {
                 className="w-10 md:w-full h-auto"
               />
             </Link>
-            <div onClick={toggleSearch} className="lg:hidden">
+            <button
+              type="button"
+              onClick={toggleSearch}
+              aria-label="Toggle search"
+              className="lg:hidden"
+            >
               <img
                 src={searchLogo}
-                alt="search logo"
+                alt=""
                 className="w-7 md:w-14 cursor-pointer"
               />
-            </div>
+            </button>
             <div className="lg:flex items-center gap-3 lg:gap-5 md:me-1 hidden ">
               <img
                 src={locationImg}
-                alt="location-logo"
+                alt=""
                 className="w-5 md:w-full h-auto"
               />
               <h4 className="text-[#F0F0F0] text-lg font-medium hidden md:block">
@@ -66,9 +71,9 @@ const Navbar = () => {
 
           <div className="flex gap-4 lg:gap-6 xl:gap-8 items-center">
             <ul className="flex gap-4 lg:gap-6 items-center">
-              <li className="flex items-center justify-center w-[76px] h-[50px] md:w-[142px] lg:h-[56px] py-[15px]  lg:px-[20px]  bg-[#B67B0F] rounded-[100px] lg:rounded-[32px]">
+              <li className="flex items-center justify-center w-[76px] h-[50px] md:w-[142px] lg:h-[56px] py-[15px] lg:px-[20px] bg-[#B67B0F] rounded-[100px] lg:rounded-[32px]">
                 <Link className="flex items-center justify-center" to="/cart">
-                  <img src={cartLogo} alt="cart-logo" />{" "}
+                  <img src={cartLogo} alt="" />{" "}
                   <span className="ps-2 text-[#FBFBFB] font-[500] text-[20px]">
                     {" "}
                     <span className="hidden md:inline-block">Cart</span>{" "}
@@ -79,49 +84,59 @@ const Navbar = () => {
               <li className="">
                 {user ? (
                   <div className="text-white flex items-center gap-2">
-                    <img src={signInLogo} alt="sign-logo" />
+                    <img src={signInLogo} alt="" />
                     <span className="hidden md:block ">
                       {" "}
                       Hi, {user.firstName}{" "}
                     </span>
                     <div>
                       <div className="dropdown dropdown-end">
-                        <div tabIndex={0} className=" m-1">
+                        <button
+                          type="button"
+                          tabIndex={0}
+                          aria-haspopup="menu"
+                          aria-expanded={isAccountMenuOpen}
+                          aria-label="Account menu"
+                          className="m-1"
+                          onClick={() => setIsAccountMenuOpen((prev) => !prev)}
+                          onBlur={() => setIsAccountMenuOpen(false)}
+                        >
                           <img
-                            src={isClicked ? arrowUp : arrowDown}
-                            alt="drop-down-img"
+                            src={isAccountMenuOpen ? arrowUp : arrowDown}
+                            alt=""
                             className="cursor-pointer min-w-3 mt-4"
                           />
-                        </div>
+                        </button>
                         <ul
                           tabIndex={0}
-                          className="dropdown-content menu  rounded-box z-1 w-36 h-36 md:h-32 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
+                          className="dropdown-content menu rounded-box z-1 w-36 h-36 md:h-32 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
                         >
                           <li className="ps-3 font-bold text-[16px] md:hidden ">
                             Hi, {user.firstName}
                           </li>
-                          
-                            {user.role === "admin" && (
-                              <li>
-
-                                <Link to="/dashboard">Dashboard</Link>
-                              </li>
-                            )}
-                          
+                          {user.role === "admin" && (
+                            <li>
+                              <Link to="/dashboard">Dashboard</Link>
+                            </li>
+                          )}
                           <li>
                             <Link to="/orders">Orders</Link>
                           </li>
-                          <div>
-
-                          <MyModal/>
-                          </div>
+                          <li>
+                            <button
+                              type="button"
+                              onClick={() => document.getElementById(LOGOUT_MODAL_ID).showModal()}
+                            >
+                              Logout
+                            </button>
+                          </li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="cursor-pointer flex items-center w-[98px] h-[50px] justify-center  md:w-[124px] lg:h-[56px] py-[15px] px-[20px]  bg-[#F0F0F0]  rounded-full ">
-                    <img src={loginLogo} alt="login-logo" />{" "}
+                  <div className="cursor-pointer flex items-center w-[98px] h-[50px] justify-center md:w-[124px] lg:h-[56px] py-[15px] px-[20px] bg-[#F0F0F0] rounded-full ">
+                    <img src={loginLogo} alt="" />{" "}
                     <span className="ps-2 text-[#100101] font-[500] text-[20px]">
                       {" "}
                       <AuthModal text="Login" />{" "}
@@ -132,10 +147,11 @@ const Navbar = () => {
             </ul>
           </div>
         </nav>
-        <div className="w-full mx-auto  px-[14px]  md:px-0 py-[10px] md:py-0 ">
+        <div className="w-full mx-auto px-[14px] md:px-0 py-[10px] md:py-0 ">
           {isTrue && <SearchField />}
         </div>
       </header>
+      {user && <MyModal />}
       <Outlet />
     </>
   );

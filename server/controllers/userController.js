@@ -1,7 +1,6 @@
 import USER from "../models/userModel.js";
 import ORDER from "../models/OrderModel.js";
 
-// admin: list customers, paginated, with their order count/spend
 export const allCustomers = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
@@ -44,7 +43,6 @@ export const allCustomers = async (req, res) => {
     }
 };
 
-// admin: a single customer's profile + their order history
 export const getCustomerById = async (req, res) => {
     try {
         const customer = await USER.findOne({ _id: req.params.userId, role: "customer" }).select("firstName lastName email createdAt");

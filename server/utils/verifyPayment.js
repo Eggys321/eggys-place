@@ -1,14 +1,5 @@
 import https from "https";
 
-/**
- * Verifies a Paystack transaction reference server-side, so an order can never
- * be marked "paid" just because a client claims it is. Requires PAYSTACK_SECRET_KEY
- * to be set in server/.env (the *secret* key from your Paystack dashboard - never
- * the public key used on the client).
- *
- * Resolves with Paystack's transaction data ({status, amount, currency, ...}) on success,
- * throws an Error with a user-safe message otherwise.
- */
 export const verifyPaystackTransaction = (reference) => {
   return new Promise((resolve, reject) => {
     if (!process.env.PAYSTACK_SECRET_KEY) {

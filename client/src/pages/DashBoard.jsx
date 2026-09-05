@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useAuth } from "../context/AuthContext";
 import LoadingRing from "../utils/Loader";
 import { baseUrl } from "../config";
+import UseTitle from "../Hooks/UseTitle";
 
 const StatCard = ({ label, value }) => (
   <div className="bg-[#252422] rounded-lg p-6">
@@ -12,6 +13,8 @@ const StatCard = ({ label, value }) => (
 );
 
 const DashBoard = () => {
+  UseTitle("Admin Overview");
+
   const { user } = useAuth();
   const [stats, setStats] = useState(null);
   const [totalCustomers, setTotalCustomers] = useState(null);
@@ -34,7 +37,7 @@ const DashBoard = () => {
         if (!statsData.success || !customersData.success) {
           toast.error("Could not load some dashboard data.");
         }
-      } catch (error) {
+      } catch {
         toast.error("Could not load dashboard data.");
       } finally {
         setIsLoading(false);

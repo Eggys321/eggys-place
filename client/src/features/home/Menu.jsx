@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { categoryList } from "../../db";
 import MyButton from "../../components/MyButton";
 import SearchField from "../../components/SearchField";
@@ -32,12 +32,13 @@ const Menu = () => {
   }, []);
   return (
     <>
-      <main className="bg-[#2F2F2F] wrapper">
+      <main className="wrapper">
         <section className="hidden md:flex justify-between items-center text-center my-8 bg-[#252422] rounded-[100px] px-4 lg:px-25 py-[10px]">
           {categoryList.map((oneCategory) => {
             const { _id, category, img } = oneCategory;
             return (
-              <div
+              <button
+                type="button"
                 key={_id}
                 className={`cursor-pointer transition-all ${
                   selectedCat === oneCategory.category
@@ -46,22 +47,21 @@ const Menu = () => {
                 }`}
                 onClick={() => setSelectedCat(oneCategory.category)}
               >
-                <img src={img} alt={category} />
+                <img src={img} alt="" />
                 <h2 className="text-[#FFFFFF]"> {category} </h2>
-              </div>
+              </button>
             );
           })}
         </section>
         <section className="md:hidden mt-5">
           <FieldSet selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
         </section>
-        {/* section-2 */}
-        <section className="md:grid md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-10  my-10 ">
+        <section className="md:grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-10 my-10">
           {isLoading ? (
             [...Array(menuItems.length || 6)].map((index) => (
               <div
                 key={index}
-                className="card bg-[#252422] w-full md:w-[340px] lg:w-[98%] p-[16px] my-10 md:my-0 shadow-sm "
+                className="card bg-[#252422] w-full md:w-[340px] lg:w-[98%] p-[16px] my-10 md:my-0 shadow-sm"
               >
                 <div className="skeleton h-[330px] w-full bg-gray-800"></div>
                 <div className="pt-4">
@@ -88,7 +88,7 @@ const Menu = () => {
                   return (
                     <div
                       key={_id}
-                      className="card bg-[#252422] w-full md:w-[340px] lg:w-[98%]  p-[16px] my-10 md:my-0 shadow-sm"
+                      className="card bg-[#252422] w-full md:w-[340px] lg:w-[98%] p-[16px] my-10 md:my-0 shadow-sm"
                     >
                       <Link to={`/product/${_id}`}>
                         <figure>
@@ -106,7 +106,7 @@ const Menu = () => {
                             {title}{" "}
                           </h2>
                           <div className="flex gap-x-2 border border-[#B67B0F] py-[6px] px-[4px] rounded-[2px] ">
-                            <img src={rateIcon} alt="rate-icon" />
+                            <img src={rateIcon} alt="" />
                             <p className="text-[#FBFBFB] font-[400] text-[14px]">
                               {rating}
                             </p>

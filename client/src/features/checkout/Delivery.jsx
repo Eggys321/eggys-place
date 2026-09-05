@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Input from "../../components/Input";
 import MyButton from "../../components/MyButton";
 import { lgaData } from "../../db";
@@ -56,10 +56,11 @@ const Delivery = ({
   return (
     <div className="bg-[#252422] py-10 px-3 rounded-lg">
       <div className="text-[#FFFFFF] border-b-1 border-[#FBFBFB] pb-3 flex justify-between">
-        <h1 className="text-[18px] md:text-[24px] font-[500]">
+        <h2 className="text-[18px] md:text-[24px] font-[500]">
           Delivery Address
-        </h1>
+        </h2>
         <button
+          type="button"
           className="cursor-pointer text-[#B67B0F] text-[20px] md:text-[18px] font-[400]"
           onClick={handleFormActivity2}
         >
@@ -75,7 +76,12 @@ const Delivery = ({
                 document.getElementById("my_modal_02").close();
               }}
             >
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              <button
+                type="button"
+                aria-label="Close"
+                onClick={() => document.getElementById("my_modal_02").close()}
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
                 ✕
               </button>
 
@@ -84,7 +90,6 @@ const Delivery = ({
                 Where do you want your order to be delivered to?
               </p>
 
-              {/* State Dropdown */}
               <div className="flex flex-col gap-2 my-4">
                 <label htmlFor="state">State *</label>
                 <select
@@ -103,7 +108,6 @@ const Delivery = ({
                 </select>
               </div>
 
-              {/* LGA Dropdown - only shows after a state is selected */}
               {deliveryAddress.state && availableLgas.length > 0 && (
                 <div className="flex flex-col gap-2 my-4">
                   <label htmlFor="city">LGA *</label>
@@ -124,7 +128,6 @@ const Delivery = ({
                 </div>
               )}
 
-              {/* Address Input - only shows after an LGA is selected */}
               {deliveryAddress.city && (
                 <div className="flex flex-col gap-2 my-4">
                   <label htmlFor="address">Address *</label>

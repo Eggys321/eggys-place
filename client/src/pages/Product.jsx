@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MyButton from "../components/MyButton";
 import CartContext from "../context/CartContext";
@@ -6,15 +6,16 @@ import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import rateIcon from "../assets/rating-icon.svg";
 import { baseUrl } from "../config";
+import UseTitle from "../Hooks/UseTitle";
+
 const Product = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { handleAddToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
-  
 
   const { productId } = useParams();
-  // console.log(productId);
+  UseTitle(product?.title, product?.description);
 
   const fetchProduct = async () => {
     try {
@@ -34,28 +35,22 @@ const Product = () => {
       );
 
       setSimilarProducts(filteredSimilarProducts);
-    } catch (error) {
-      // console.log(error);
+    } catch {
+      return;
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    // window.scrollTo(0, 0);
-    // window.scroll({
-    //   top: 0,
-    //   left: 0,
-    //   behavior: "smooth",
-    // });
     fetchProduct();
   }, [productId]);
 
   return (
     <>
-      <main className="wrapper bg-[#2F2F2F]  ">
+      <main className="wrapper">
         {isLoading ? (
-          <div className="card  w-full md:w-[340px] lg:w-[98%] p-[16px] my-10 md:my-0 shadow-sm md:grid grid-cols-2 py-1">
+          <div className="card w-full md:w-[340px] lg:w-[98%] p-[16px] my-10 md:my-0 shadow-sm md:grid grid-cols-2 py-1">
             <div className="skeleton h-[330px] w-full bg-gray-800"></div>
             <div className="pt-4 md:px-8 flex flex-col justify-center gap-y-[20px]">
               <div className="skeleton h-6 w-3/4 mb-4 bg-gray-800"></div>
@@ -94,75 +89,76 @@ const Product = () => {
           <h2 className="text-white text-4xl pb-6">Others You Might Like</h2>
           <div className="flex overflow-x-auto snap-x scroll-smooth space-x-3 md:space-x-6 pb-4 no-scrollbar">
             {isLoading ? (
-            [...Array(6)].map((_, index) => (
-              <div
-                key={index}
-                className="card bg-[#252422] w-[300px] md:w-[340px] md:min-w-[340px]  flex-none snap-start p-[16px] shadow-sm "
-              >
-                <div className="skeleton h-[330px] w-full bg-gray-800"></div>
-                <div className="pt-4">
-                  <div className="skeleton h-6 w-3/4 mb-4 bg-gray-800"></div>
-                  <div className="skeleton h-5 w-1/2 mb-2 bg-gray-800"></div>
-                  <div className="skeleton w-full h-[56px] bg-gray-800 mt-8"></div>
-                </div>
-              </div>
-            ))
-          ) : (<> {similarProducts.map((similarProduct) => {
-              const { _id, image, title, rating, price, duration } =
-                similarProduct;
-              return (
+              [...Array(6)].map((_, index) => (
                 <div
-                  key={_id}
-                  className="card bg-[#252422] w-[300px] md:w-[340px] md:min-w-[340px]  flex-none snap-start p-[16px] shadow-sm "
+                  key={index}
+                  className="card bg-[#252422] w-[300px] md:w-[340px] md:min-w-[340px] flex-none snap-start p-[16px] shadow-sm "
                 >
-                  <Link to={`/product/${_id}`}>
-                    <figure>
-                      <img
-                        src={image}
-                        alt={title}
-                        loading="lazy"
-                        className="w-full h-auto object-cover "
-                      />
-                    </figure>
-                  </Link>
+                  <div className="skeleton h-[330px] w-full bg-gray-800"></div>
                   <div className="pt-4">
-                    <div className="flex justify-between items-center">
-                      <h2 className="card-title font-[500] text-[20px] text-[#FBFBFB] ">
-                        {title}{" "}
-                      </h2>
-                      <div className="flex gap-x-2 border border-[#B67B0F] py-[6px] px-[4px] rounded-[2px] ">
-                        <img src={rateIcon} alt="rate-icon" />
-                        <p className="text-[#FBFBFB] font-[400] text-[14px]">
-                          {" "}
-                          {rating}{" "}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <p className="text-[#B67B0F]  py-5 ">
-                        {" "}
-                        <span className="font-[200] text-[23px]">
-                          &#8358;
-                        </span>{" "}
-                        <span className="font-[500] text-[31px]">{price}</span>{" "}
-                      </p>
-                      <p className="text-[#FBFBFB]"> {duration} </p>
-                    </div>
-                    <div className="card-actions justify-center ">
-                      <MyButton
-                        text="Add to cart"
-                        className="w-full h-[56px]"
-                        onClick={() => {
-                          handleAddToCart(similarProduct),
-                            toast.success("Item added");
-                        }}
-                      />
-                    </div>
+                    <div className="skeleton h-6 w-3/4 mb-4 bg-gray-800"></div>
+                    <div className="skeleton h-5 w-1/2 mb-2 bg-gray-800"></div>
+                    <div className="skeleton w-full h-[56px] bg-gray-800 mt-8"></div>
                   </div>
                 </div>
-              );
-            })} </>)}
-            
+              ))
+            ) : (
+              similarProducts.map((similarProduct) => {
+                const { _id, image, title, rating, price, duration } =
+                  similarProduct;
+                return (
+                  <div
+                    key={_id}
+                    className="card bg-[#252422] w-[300px] md:w-[340px] md:min-w-[340px] flex-none snap-start p-[16px] shadow-sm "
+                  >
+                    <Link to={`/product/${_id}`}>
+                      <figure>
+                        <img
+                          src={image}
+                          alt={title}
+                          loading="lazy"
+                          className="w-full h-auto object-cover "
+                        />
+                      </figure>
+                    </Link>
+                    <div className="pt-4">
+                      <div className="flex justify-between items-center">
+                        <h2 className="card-title font-[500] text-[20px] text-[#FBFBFB] ">
+                          {title}{" "}
+                        </h2>
+                        <div className="flex gap-x-2 border border-[#B67B0F] py-[6px] px-[4px] rounded-[2px] ">
+                          <img src={rateIcon} alt="" />
+                          <p className="text-[#FBFBFB] font-[400] text-[14px]">
+                            {" "}
+                            {rating}{" "}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <p className="text-[#B67B0F]  py-5 ">
+                          {" "}
+                          <span className="font-[200] text-[23px]">
+                            &#8358;
+                          </span>{" "}
+                          <span className="font-[500] text-[31px]">{price}</span>{" "}
+                        </p>
+                        <p className="text-[#FBFBFB]"> {duration} </p>
+                      </div>
+                      <div className="card-actions justify-center ">
+                        <MyButton
+                          text="Add to cart"
+                          className="w-full h-[56px]"
+                          onClick={() => {
+                            handleAddToCart(similarProduct),
+                              toast.success("Item added");
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </section>
       </main>

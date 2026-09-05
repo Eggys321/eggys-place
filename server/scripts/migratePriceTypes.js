@@ -1,13 +1,3 @@
-// One-off migration: earlier product/order documents stored `price` as a String.
-// The schema now declares these fields as Number (see models/productModel.js,
-// models/OrderModel.js) so new writes are already correct - this script just
-// normalizes the type of data that existed before that change.
-//
-// Uses raw aggregation-pipeline updates (not Mongoose .save()) because Mongoose
-// casts String -> Number on read, which makes its own dirty-checking think an
-// already-correct-looking in-memory value hasn't changed and skips the write -
-// leaving the stored BSON type as a string. $toDouble bypasses that entirely and
-// is a safe no-op to re-run against documents that are already numeric.
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";

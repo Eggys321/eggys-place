@@ -3,7 +3,7 @@ import drinksCategory from "./assets/category-drinks.svg";
 import comboCategory from "./assets/category-combos.svg";
 import saladsCategory from "./assets/category-salad.svg";
 import chipsCategory from "./assets/category-chips.svg";
-import chickenCategory from "./assets/category-chicken.svg"
+import chickenCategory from "./assets/category-chicken.svg";
 
 export const categoryList = [
     {_id:1,img:hamburgerCategory,category:"Burger"},
@@ -12,7 +12,7 @@ export const categoryList = [
     {_id:4,img:chickenCategory,category:"Chicken"},
     {_id:5,img:chipsCategory,category:"Chips"},
     {_id:6,img:saladsCategory,category:"Salads"}
-]
+];
 
 export const menuItems = [
     {
@@ -34,7 +34,7 @@ export const menuItems = [
         price: "10000",
         category:"Burger",
         duration: "15-20mins",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."  
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
     },
 
     {
@@ -102,7 +102,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 9,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741087061/eggys-place/cheese-burger-9_nwd7eo.svg",
@@ -113,7 +113,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 10,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/combo-1_bhjhhe.svg",
@@ -124,7 +124,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 11,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/combo-2_ne7gkh.svg",
@@ -135,7 +135,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 12,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691086/eggys-place/combo-3_ohoqc9.svg",
@@ -146,7 +146,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 13,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691087/eggys-place/combo-4_fu6cni.svg",
@@ -157,7 +157,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 14,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691086/eggys-place/drink-1_yzmo3a.svg",
@@ -168,7 +168,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 15,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691087/eggys-place/drink-2_d9izgf.svg",
@@ -179,7 +179,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 16,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691088/eggys-place/drink-3_lobeke.svg",
@@ -190,7 +190,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 17,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691089/eggys-place/drink-4_xmuc8l.svg",
@@ -201,7 +201,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 18,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chicken-1_qt4cgk.svg",
@@ -213,7 +213,7 @@ export const menuItems = [
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
       ,
-      
+
       {
         _id: 19,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chicken-2_xu6ewt.svg",
@@ -225,7 +225,7 @@ export const menuItems = [
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
       ,
-      
+
       {
         _id: 20,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691144/eggys-place/chicken-3_ybodwr.svg",
@@ -236,7 +236,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 21,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chicken-4_m27xyk.svg",
@@ -248,7 +248,7 @@ export const menuItems = [
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
       ,
-      
+
       {
         _id: 22,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691081/eggys-place/chips-1_xsjlyg.svg",
@@ -259,7 +259,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       } ,
-      
+
       {
         _id: 23,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691085/eggys-place/chips-2_x5gmcx.svg",
@@ -270,7 +270,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 24,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/chips-3_hrbxmx.svg",
@@ -282,7 +282,7 @@ export const menuItems = [
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
       ,
-      
+
       {
         _id: 25,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691084/eggys-place/chips-4_i0odlp.svg",
@@ -293,7 +293,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       },
-      
+
       {
         _id: 27,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-1_sxxkvd.svg",
@@ -305,7 +305,7 @@ export const menuItems = [
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
       ,
-      
+
       {
         _id: 28,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-2_lvc6cd.svg",
@@ -316,7 +316,7 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       } ,
-      
+
       {
         _id: 29,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-3_ykdghi.svg",
@@ -328,7 +328,7 @@ export const menuItems = [
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
       ,
-      
+
       {
         _id: 30,
         image: "https://res.cloudinary.com/eguono/image/upload/v1741691237/eggys-place/salad-3_ykdghi.svg",
@@ -339,20 +339,18 @@ export const menuItems = [
         duration: "15-20mins",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis maxime earum praesentium soluta, assumenda recusandae ipsam quam? Ea facere maiores quae aspernatur voluptas unde ab incidunt quis eum assumenda laboriosam, ratione officiis explicabo facilis eos eius minus ducimus tempora."
       }
-]
+];
 
-
-// lgaData.js
 export const lgaData = {
   Lagos: [
-    "Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry", 
-    "Epe", "Eti-Osa", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Kosofe", 
+    "Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry",
+    "Epe", "Eti-Osa", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Kosofe",
     "Lagos Island", "Lagos Mainland", "Mushin", "Ojo", "Oshodi-Isolo", "Shomolu", "Surulere"
   ],
   Delta: [
-    "Aniocha North", "Aniocha South", "Bomadi", "Burutu", "Ethiope East", "Ethiope West", 
-    "Ika North East", "Ika South", "Isoko North", "Isoko South", "Ndokwa East", "Ndokwa West", 
-    "Okpe", "Oshimili North", "Oshimili South", "Patani", "Sapele", "Udu", "Ughelli North", 
+    "Aniocha North", "Aniocha South", "Bomadi", "Burutu", "Ethiope East", "Ethiope West",
+    "Ika North East", "Ika South", "Isoko North", "Isoko South", "Ndokwa East", "Ndokwa West",
+    "Okpe", "Oshimili North", "Oshimili South", "Patani", "Sapele", "Udu", "Ughelli North",
     "Ughelli South", "Ukwuani", "Uvwie", "Warri North", "Warri South", "Warri South West"
   ],
   Abuja: [

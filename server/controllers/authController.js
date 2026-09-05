@@ -3,8 +3,6 @@ import { sendForgotPasswordMail } from "../emails/emailHandlers.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
-// sign up
-
 export const signUp = async (req, res) => {
   const { email, password, firstName, lastName, cPassword } = req.body;
   if (!email || !password || !firstName || !lastName || !cPassword) {
@@ -22,8 +20,8 @@ export const signUp = async (req, res) => {
 
   if (password.length < 8) {
     res
-    .status(400)
-    .json({ success: false, errMsg: "min password length must be 8 chrs" });
+      .status(400)
+      .json({ success: false, errMsg: "min password length must be 8 chrs" });
     return;
   }
 
@@ -34,17 +32,15 @@ export const signUp = async (req, res) => {
       return;
     }
 
-    // never trust a role sent by the client - every sign-up is a plain customer
     const user = await USER.create({ email, password, firstName, lastName, role: "customer" });
     res
-    .status(201)
-    .json({ success: true, message: "registration successful", user: { _id: user._id, email: user.email, firstName: user.firstName, lastName: user.lastName, role: user.role } });
+      .status(201)
+      .json({ success: true, message: "registration successful", user: { _id: user._id, email: user.email, firstName: user.firstName, lastName: user.lastName, role: user.role } });
   } catch (error) {
     res.status(500).json({ success: false, errMsg: "Something went wrong during registration" });
   }
 };
 
-// sign in
 export const signIn = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -54,9 +50,6 @@ export const signIn = async (req, res) => {
         .json({ success: false, errMsg: "all fields are required to sign in" });
       return;
     }
-    // finding a registered email address
-    // (same error message/status for "no such user" and "wrong password" so a client
-    // can't use this endpoint to enumerate which emails are registered)
     const user = await USER.findOne({ email });
     if (!user) {
       res
@@ -65,7 +58,6 @@ export const signIn = async (req, res) => {
       return;
     }
 
-    // comparing password and validating password
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       res
@@ -73,7 +65,6 @@ export const signIn = async (req, res) => {
         .json({ success: false, errMsg: "Email or password is incorrect" });
       return;
     }
-    // generating token
     const token = user.generateToken();
     if (token) {
       res.status(200).json({
@@ -93,7 +84,6 @@ export const signIn = async (req, res) => {
   }
 };
 
-// forgot password
 export const forgotPassword = async (req, res) => {
   const { email } = req.body;
   try {
@@ -129,30 +119,27 @@ export const forgotPassword = async (req, res) => {
   }
 };
 
-// reset password ftn
-export const resetPassword = async (req,res)=>{
+export const resetPassword = async (req, res) => {
   const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex");
   try {
     const user = await USER.findOne({
       resetPasswordToken,
-      resetPasswordExpire :{$gt:Date.now()}
-    })
-    if(!user){
-      res.status(400).json({status:false, errMsg:"invalid reset token"});
+      resetPasswordExpire: { $gt: Date.now() },
+    });
+    if (!user) {
+      res.status(400).json({ status: false, errMsg: "invalid reset token" });
       return;
     }
     user.password = req.body.password;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
     await user.save();
-    res.status(201).json({success:true,message:"Password Reset successful"})
+    res.status(201).json({ success: true, message: "Password Reset successful" });
   } catch (error) {
     res.status(500).json(error.message);
-
   }
-}
+};
 
-// isLoggedIn ftn
 export const isLoggedIn = async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
@@ -170,10 +157,9 @@ export const isLoggedIn = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      user, 
+      user,
     });
   } catch (error) {
-    // console.error("isLoggedIn error:", error);
     res.status(401).json({ success: false, errMsg: "Invalid token" });
   }
 };

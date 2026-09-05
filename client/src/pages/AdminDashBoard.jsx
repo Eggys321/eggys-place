@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -11,8 +10,7 @@ const AdminDashBoard = () => {
   const { user, logout } = useAuth();
 
   return (
-    <main className="wrapper flex flex-col md:flex-row gap-4 bg-[#2F2F2F] min-h-screen">
-      {/* sidebar */}
+    <main className="wrapper flex flex-col md:flex-row gap-4 min-h-screen">
       <section className="md:w-[220px] shrink-0 bg-[#100101] rounded-lg p-4">
         <div className="text-[#FBFBFB] pb-4 mb-4 border-b border-[#333]">
           <p className="text-sm text-gray-400">Signed in as</p>
@@ -43,7 +41,6 @@ const AdminDashBoard = () => {
         </div>
       </section>
 
-      {/* content */}
       <section className="flex-1 bg-[#100101] rounded-lg p-4 md:p-8 text-[#FBFBFB]">
         <Outlet />
       </section>

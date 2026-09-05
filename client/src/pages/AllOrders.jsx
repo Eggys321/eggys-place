@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useAuth } from "../context/AuthContext";
 import LoadingRing from "../utils/Loader";
 import { baseUrl } from "../config";
+import UseTitle from "../Hooks/UseTitle";
 
 const STATUS_OPTIONS = ["pending", "paid", "delivered", "cancelled"];
 
@@ -15,6 +16,8 @@ const statusBadgeClass = {
 };
 
 const AllOrders = () => {
+  UseTitle("Manage Orders");
+
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   const [page, setPage] = useState(1);
@@ -38,7 +41,7 @@ const AllOrders = () => {
       } else {
         toast.error(data.errMsg || "Could not load orders.");
       }
-    } catch (error) {
+    } catch {
       toast.error("Could not load orders.");
     } finally {
       setIsLoading(false);
@@ -68,7 +71,7 @@ const AllOrders = () => {
       } else {
         toast.error(data.errMsg || "Could not update order status.");
       }
-    } catch (error) {
+    } catch {
       toast.error("Could not update order status.");
     } finally {
       setUpdatingId(null);

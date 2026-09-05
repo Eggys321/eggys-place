@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import CartContext from "../../context/CartContext";
 import deleteIcon from "../../assets/waste-bin.svg";
 import { toast } from "sonner";
@@ -14,16 +14,16 @@ const CartItems = () => {
       </h1>
 
       <div className="px-3 md:px-8 pb-3 pt-2">
-        <h1 className="border-t"></h1>
+        <div className="border-t"></div>
       </div>
 
-      <div className=" bg-black px-3 md:px-8  ">
+      <div className="bg-black px-3 md:px-8">
         {cart.map((cartItem) => {
           const { _id, image, title, price, quantity } = cartItem;
           return (
             <div
               key={_id}
-              className="flex flex-wrap justify-between items-center  mb-6 rounded-[11px]  bg-[#252422] p-[10px]"
+              className="flex flex-wrap justify-between items-center mb-6 rounded-[11px] bg-[#252422] p-[10px]"
             >
               <div className="flex justify-between items-center gap-3">
                 <div className="h-[88px]">
@@ -31,14 +31,14 @@ const CartItems = () => {
                     src={image}
                     alt={title}
                     loading="lazy"
-                    className="w-[98px] h-full  rounded-2xl"
+                    className="w-[98px] h-full rounded-2xl"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h1 className="font-[500] text-[18px]">
+                  <h2 className="font-[500] text-[18px]">
                     {" "}
                     {title?.slice(0, 7)}{" "}
-                  </h1>
+                  </h2>
                   <p className="font-[400] text-[12px] text-[#FBFBFB]">
                     {" "}
                     14/01/2025{" "}
@@ -55,32 +55,38 @@ const CartItems = () => {
                   </h2>
                 </div>
               </div>
-              <div className="flex  flex-col gap-8">
+              <div className="flex flex-col gap-8">
                 <div className="flex justify-end">
-                  <img
+                  <button
+                    type="button"
+                    aria-label="Remove item"
                     onClick={() => {
-                      handleRemove(cart, setCart, _id),
-                        toast.success("Item removed");
+                      handleRemove(cart, setCart, _id);
+                      toast.success("Item removed");
                     }}
-                    className="cursor-pointer w-[24px] "
-                    src={deleteIcon}
-                    alt="waste-bin"
-                  />
+                    className="cursor-pointer w-[24px]"
+                  >
+                    <img className="w-full" src={deleteIcon} alt="" />
+                  </button>
                 </div>
                 <div className="flex items-center gap-4">
-                  <h2
-                    className="text-center cursor-pointer bg-[#B67B0F] text-[#FBFBFB]  p-[4px] rounded-[17px] h-[32px] w-[32px]"
+                  <button
+                    type="button"
+                    aria-label="Increase quantity"
+                    className="text-center cursor-pointer bg-[#B67B0F] text-[#FBFBFB] p-[4px] rounded-[17px] h-[32px] w-[32px]"
                     onClick={() => handleInc(cart, setCart, _id)}
                   >
                     +
-                  </h2>
+                  </button>
                   <p> {quantity} </p>
-                  <h2
-                    className=" text-center cursor-pointer bg-[#B67B0F] text-[#FBFBFB]  p-[4px] rounded-[17px] h-[32px] w-[32px]"
+                  <button
+                    type="button"
+                    aria-label="Decrease quantity"
+                    className="text-center cursor-pointer bg-[#B67B0F] text-[#FBFBFB] p-[4px] rounded-[17px] h-[32px] w-[32px]"
                     onClick={() => handleDec(cart, setCart, _id)}
                   >
                     -
-                  </h2>
+                  </button>
                 </div>
               </div>
             </div>

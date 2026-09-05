@@ -1,8 +1,7 @@
-import React from 'react';
-import { useAuth } from '../context/AuthContext';
-import { Navigate } from 'react-router-dom';
-import LoadingRing from '../utils/Loader';
-import { toast } from 'sonner';
+import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
+import LoadingRing from "../utils/Loader";
+import { toast } from "sonner";
 
 const PrivateRoute = ({ children }) => {
   const { user, isLoading } = useAuth();
@@ -20,8 +19,7 @@ const PrivateRoute = ({ children }) => {
     return <Navigate to="/" />;
   }
 
-  return  children ;
-  
+  return children;
 };
 
 export default PrivateRoute;

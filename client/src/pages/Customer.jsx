@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useAuth } from "../context/AuthContext";
 import LoadingRing from "../utils/Loader";
 import { baseUrl } from "../config";
+import UseTitle from "../Hooks/UseTitle";
 
 const Customer = () => {
+  UseTitle("Customers");
+
   const { user } = useAuth();
   const [customers, setCustomers] = useState([]);
   const [page, setPage] = useState(1);
@@ -25,7 +28,7 @@ const Customer = () => {
         } else {
           toast.error(data.errMsg || "Could not load customers.");
         }
-      } catch (error) {
+      } catch {
         toast.error("Could not load customers.");
       } finally {
         setIsLoading(false);

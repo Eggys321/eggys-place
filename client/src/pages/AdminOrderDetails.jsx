@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { useAuth } from "../context/AuthContext";
 import LoadingRing from "../utils/Loader";
 import { baseUrl } from "../config";
+import UseTitle from "../Hooks/UseTitle";
 
 const STATUS_OPTIONS = ["pending", "paid", "delivered", "cancelled"];
 
 const AdminOrderDetails = () => {
+  UseTitle("Order Details");
+
   const { orderId } = useParams();
   const { user } = useAuth();
   const [order, setOrder] = useState(null);
@@ -26,7 +29,7 @@ const AdminOrderDetails = () => {
       } else {
         toast.error(data.errMsg || "Could not load this order.");
       }
-    } catch (error) {
+    } catch {
       toast.error("Could not load this order.");
     } finally {
       setIsLoading(false);
@@ -56,7 +59,7 @@ const AdminOrderDetails = () => {
       } else {
         toast.error(data.errMsg || "Could not update order status.");
       }
-    } catch (error) {
+    } catch {
       toast.error("Could not update order status.");
     } finally {
       setIsUpdating(false);
@@ -86,7 +89,7 @@ const AdminOrderDetails = () => {
       <div className="md:grid grid-cols-2 gap-10 mt-4">
         <div className="space-y-6">
           <div>
-            <h2 className="text-xl font-semibold border-b border-gray-600 pb-2 mb-4">Order Details</h2>
+            <h1 className="text-xl font-semibold border-b border-gray-600 pb-2 mb-4">Order Details</h1>
             <div className="flex justify-between items-center mb-3">
               <span className="text-gray-400">Status:</span>
               <select
@@ -110,21 +113,21 @@ const AdminOrderDetails = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">Recipient</h3>
+            <h2 className="text-lg font-semibold mb-2">Recipient</h2>
             <p>{recipientInfo?.fullName}</p>
             <p className="text-sm text-gray-400">{recipientInfo?.email}</p>
             <p className="text-sm text-gray-400">{recipientInfo?.phoneNumber}</p>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">Delivery Address</h3>
+            <h2 className="text-lg font-semibold mb-2">Delivery Address</h2>
             <p className="text-sm text-gray-400">{deliveryAddress?.address}</p>
             <p className="text-sm text-gray-400">{deliveryAddress?.city}, {deliveryAddress?.state}</p>
           </div>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-2">Ordered Items</h3>
+          <h2 className="text-lg font-semibold mb-2">Ordered Items</h2>
           <div className="space-y-3">
             {orderItems?.map((item, index) => (
               <div key={index} className="bg-[#1f1f1f] rounded-md p-4 flex gap-4 border border-gray-700">
