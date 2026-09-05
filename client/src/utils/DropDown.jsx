@@ -1,5 +1,5 @@
 import arrowDown from "../assets/drop-down-img.svg";
-import arrowUp from "../assets/arrow-up-2.png";
+import arrowUp from "../assets/drop-up-img.svg";
 import { useState } from "react";
 
 export const LocationDropDownFN = ({ onSelect } = {}) => {

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import navLogo from "../assets/nav-logo.svg";
 import locationImg from "../assets/location-img.svg";
 import { Link, Outlet } from "react-router-dom";
@@ -11,7 +11,7 @@ import searchLogo from "../assets/search-logo.svg";
 import CartContext from "../context/CartContext";
 import signInLogo from "../assets/sign-in-logo.png";
 import arrowDown from "../assets/drop-down-img.svg";
-import arrowUp from "../assets/arrow-up-2.png";
+import arrowUp from "../assets/drop-up-img.svg";
 import { useAuth } from "../context/AuthContext";
 import MyModal, { LOGOUT_MODAL_ID } from "../components/modals/MyModal";
 
@@ -22,10 +22,24 @@ const Navbar = () => {
 
   const savedLocation = localStorage.getItem("userLocation");
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+  const accountMenuRef = useRef(null);
 
   function toggleSearch() {
     setIsTrue((prev) => !prev);
   }
+
+  useEffect(() => {
+    if (!isAccountMenuOpen) return;
+
+    const closeIfOutside = (event) => {
+      if (accountMenuRef.current && !accountMenuRef.current.contains(event.target)) {
+        setIsAccountMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", closeIfOutside);
+    return () => document.removeEventListener("pointerdown", closeIfOutside);
+  }, [isAccountMenuOpen]);
   return (
     <>
       <header className="bg-[#100101] w-full sticky z-10 top-0">
@@ -89,48 +103,58 @@ const Navbar = () => {
                       {" "}
                       Hi, {user.firstName}{" "}
                     </span>
-                    <div>
-                      <div className="dropdown dropdown-end">
+                    <div ref={accountMenuRef}>
+                      <div
+                        className={`dropdown dropdown-end${
+                          isAccountMenuOpen ? " dropdown-open" : ""
+                        }`}
+                      >
                         <button
                           type="button"
-                          tabIndex={0}
                           aria-haspopup="menu"
                           aria-expanded={isAccountMenuOpen}
                           aria-label="Account menu"
-                          className="m-1"
+                          className="m-1 p-2 -m-2"
                           onClick={() => setIsAccountMenuOpen((prev) => !prev)}
-                          onBlur={() => setIsAccountMenuOpen(false)}
                         >
                           <img
                             src={isAccountMenuOpen ? arrowUp : arrowDown}
                             alt=""
-                            className="cursor-pointer min-w-3 mt-4"
+                            className="cursor-pointer w-3 h-3 mt-4"
                           />
                         </button>
-                        <ul
-                          tabIndex={0}
-                          className="dropdown-content menu rounded-box z-1 w-36 h-36 md:h-32 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
-                        >
-                          <li className="ps-3 font-bold text-[16px] md:hidden ">
-                            Hi, {user.firstName}
-                          </li>
-                          {user.role === "admin" && (
-                            <li>
-                              <Link to="/dashboard">Dashboard</Link>
+                        {isAccountMenuOpen && (
+                          <ul
+                            className="dropdown-content menu rounded-box z-1 w-36 h-36 md:h-32 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
+                          >
+                            <li className="ps-3 font-bold text-[16px] md:hidden ">
+                              Hi, {user.firstName}
                             </li>
-                          )}
-                          <li>
-                            <Link to="/orders">Orders</Link>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              onClick={() => document.getElementById(LOGOUT_MODAL_ID).showModal()}
-                            >
-                              Logout
-                            </button>
-                          </li>
-                        </ul>
+                            {user.role === "admin" && (
+                              <li>
+                                <Link to="/dashboard" onClick={() => setIsAccountMenuOpen(false)}>
+                                  Dashboard
+                                </Link>
+                              </li>
+                            )}
+                            <li>
+                              <Link to="/orders" onClick={() => setIsAccountMenuOpen(false)}>
+                                Orders
+                              </Link>
+                            </li>
+                            <li>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setIsAccountMenuOpen(false);
+                                  document.getElementById(LOGOUT_MODAL_ID).showModal();
+                                }}
+                              >
+                                Logout
+                              </button>
+                            </li>
+                          </ul>
+                        )}
                       </div>
                     </div>
                   </div>
