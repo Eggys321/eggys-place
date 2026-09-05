@@ -104,11 +104,7 @@ const Navbar = () => {
                       Hi, {user.firstName}{" "}
                     </span>
                     <div ref={accountMenuRef}>
-                      <div
-                        className={`dropdown dropdown-end${
-                          isAccountMenuOpen ? " dropdown-open" : ""
-                        }`}
-                      >
+                      <div className="relative">
                         <button
                           type="button"
                           aria-haspopup="menu"
@@ -125,7 +121,7 @@ const Navbar = () => {
                         </button>
                         {isAccountMenuOpen && (
                           <ul
-                            className="dropdown-content menu rounded-box z-1 w-36 h-36 md:h-32 text-[#FBFBFB] p-2 shadow-sm mt-7 bg-[#252422]"
+                            className="menu absolute right-0 top-full z-50 mt-2 w-40 max-w-[calc(100vw-1.75rem)] rounded-box text-[#FBFBFB] p-2 shadow-lg bg-[#252422]"
                           >
                             <li className="ps-3 font-bold text-[16px] md:hidden ">
                               Hi, {user.firstName}
