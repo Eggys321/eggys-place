@@ -29,7 +29,7 @@ server/   Express + MongoDB API
 
 ### Running locally
 
-Each app needs its own `.env` file (not committed) — see `CLAUDE.md` for the required variables.
+Each app needs its own `.env` file (not committed).
 
 ```bash
 # backend
